@@ -10,6 +10,7 @@ public class Functions {
         double variance = varianceOfArray(b);
         System.out.println("min = " + min);
         System.out.println("max = " + max);
+
     }
 
     public static int minOfArray(int[] arr) {
@@ -32,12 +33,18 @@ public class Functions {
         return max;
     }
 
-    public static double varianceOfArray(int [] arr) {
+    public static double varianceOfArray(int[] arr) {
         double avg = avgOfArray(arr);
         long sum = 0;
         for (int i = 0; i < arr.length; i++) {
             sum += (arr[i] - avg) * (arr[i] - avg);
         }
         return sqrt((double) sum / arr.length);
+    }
+
+    public static void printArray(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(arr[i]);
+        }
     }
 }

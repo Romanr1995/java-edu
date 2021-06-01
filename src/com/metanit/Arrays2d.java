@@ -2,21 +2,8 @@ package com.metanit;
 
 public class Arrays2d {
     public static void main(String[] args) {
-        int[][] arr = new int[4][5];
-
-        int[][] arr2 = {
-                {1,2,3},
-                {4,5,6,7},
-                {3,3,3}
-        };
-
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr[i].length; j++) {
-                arr[i][j] = i + j * j;
-            }
-        }
-
-        printPretty(arr);
+        int[][] ints = generateIotaSnakeV2(10, 8);
+        printPretty(ints);
     }
 
     /*
@@ -62,8 +49,55 @@ public class Arrays2d {
              | 1 2 |
     (3,2) => | 4 3 |
              | 5 6 |
+
+             генерировать 2мерныйй массив который заполнен числами
+             от 1 до N в порядке змейки (если провести линию в порядке возрастания то получится змея)
+     */
+
+    /**
+     *
+     * @param rows кол-во строк.
+     * @param cols кол-во колонок.
      */
     public static int[][] generateIotaSnake(int rows, int cols) {
-        return null;
+        int [][] num1 = new int[rows][cols];
+        int cnt = 1;
+        for (int i = 0; i < num1.length; ++i) {
+            if (i % 2 == 0) {
+                for (int j = 0; j < num1[i].length; j++) {
+                    num1[i][j] = cnt;
+                    cnt++;
+                }
+            } else {
+                for (int k = num1[i].length - 1; k >= 0; k--) {
+                    num1[i][k] = cnt;
+                    cnt++;
+                }
+            }
+        }
+        return num1;
+    }
+
+    public static int[][] generateIotaSnakeV2(int rows, int cols) {
+        int [][] num1 = new int[rows][cols];
+        int cnt = 1;
+        for (int i = 0; i < num1.length; ++i) {
+            int j;
+            int delta;
+
+            if (i % 2 == 0) {
+                j = 0;
+                delta = 1;
+            } else {
+                j = num1[i].length - 1;
+                delta = -1;
+            }
+
+            while (j >= 0 && j < num1[i].length) {
+                num1[i][j] = cnt++;
+                j += delta;
+            }
+        }
+        return num1;
     }
 }

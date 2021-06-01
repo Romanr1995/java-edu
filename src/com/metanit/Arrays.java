@@ -7,6 +7,7 @@ public class Arrays {
         int [] a = {2,3,7,12,15};
         int [] b = new int[1000];
 
+
         for (int i = 0; i < a.length ; i++ ){
             System.out.println(a[i] );
         }
