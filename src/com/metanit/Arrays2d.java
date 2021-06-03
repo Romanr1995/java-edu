@@ -2,15 +2,20 @@ package com.metanit;
 
 public class Arrays2d {
     public static void main(String[] args) {
-        int[][] ints = generateIotaSnakeV2(10, 8);
-        printPretty(ints);
+        int[][] sample1 = {
+                {1, 2, 3},
+                {2, 4, 6},
+                {8, 8, 1}
+        };
+        int[][] result1 = generateAdjustmentSumArray(sample1);
+        printPretty(result1);
     }
 
     /*
     |1 2 3|     | 6  |
     |4 8 9| =>  | 21 |
      */
-    public static long[] sumArr(int[][] arr){
+    public static long[] sumArr(int[][] arr) {
         long[] sum = new long[arr.length];
 
         for (int i = 0; i < arr.length; i++) {
@@ -55,12 +60,11 @@ public class Arrays2d {
      */
 
     /**
-     *
      * @param rows кол-во строк.
      * @param cols кол-во колонок.
      */
     public static int[][] generateIotaSnake(int rows, int cols) {
-        int [][] num1 = new int[rows][cols];
+        int[][] num1 = new int[rows][cols];
         int cnt = 1;
         for (int i = 0; i < num1.length; ++i) {
             if (i % 2 == 0) {
@@ -79,7 +83,7 @@ public class Arrays2d {
     }
 
     public static int[][] generateIotaSnakeV2(int rows, int cols) {
-        int [][] num1 = new int[rows][cols];
+        int[][] num1 = new int[rows][cols];
         int cnt = 1;
         for (int i = 0; i < num1.length; ++i) {
             int j;
@@ -100,4 +104,21 @@ public class Arrays2d {
         }
         return num1;
     }
-}
+
+    public static int[][] generateAdjustmentSumArray(int[][] a) {
+//
+////        for (int i = 0; i < a.length; ++i) {
+////            for (int j = 0; i < a[i].length; ++j) {
+////                if (i != 0 && i != (a.length - 1) && j != 0 && j != (a[i].length - 1)) {
+////                    a[i][j] = a[i--][j] + a[i++][j] + a[i][j--] + a[i][j++];
+////                } else if (i == 0 && j == 0) {
+////                    a[i][j] = a[i++][0] + a[0][j++];
+////                } else if (i == 0 && j == (a[i].length - 1)) {
+////                    a[i][j] = a[0][j--] + a[i++][j];
+////            }
+//
+            return null;//B
+        }
+
+    }
+
