@@ -106,19 +106,32 @@ public class Arrays2d {
     }
 
     public static int[][] generateAdjustmentSumArray(int[][] a) {
-//
-////        for (int i = 0; i < a.length; ++i) {
-////            for (int j = 0; i < a[i].length; ++j) {
-////                if (i != 0 && i != (a.length - 1) && j != 0 && j != (a[i].length - 1)) {
-////                    a[i][j] = a[i--][j] + a[i++][j] + a[i][j--] + a[i][j++];
-////                } else if (i == 0 && j == 0) {
-////                    a[i][j] = a[i++][0] + a[0][j++];
-////                } else if (i == 0 && j == (a[i].length - 1)) {
-////                    a[i][j] = a[0][j--] + a[i++][j];
-////            }
-//
-            return null;//B
+        int i ;
+        int j ;
+        for (i = 0; i < a.length; ++i) {
+            for (j = 0; i < a[i].length; ++j) {
+                if (i != 0 && i != (a.length - 1) && j != 0 && j != (a[i].length - 1)) {
+                    a[i][j] = a[i - 1][j] + a[i + 1][j] + a[i][j - 1] + a[i][j + 1];
+                } else if (i == 0 && j == 0) {
+                    a[i][j] = a[i + 1][j] + a[i][j + 1];
+                } else if (i == 0 && j == (a[i].length - 1)) {
+                    a[i][j] = a[i][j - 1] + a[i + 1][j];
+                } else if (i == (a.length - 1) && j == 0) {
+                    a[i][j] = a[i - 1][j] + a[i][j + 1];
+                } else if (i == (a.length - 1) && j == (a[i].length - 1)) {
+                    a[i][j] = a[i][j - 1] + a[i - 1][j];
+                } else if (i == 0 && i != (a.length - 1) && j != 0 && j != (a[i].length - 1)) {
+                    a[i][j] = a[i][j - 1] + a[i][j + 1] + a[i + 1][j];
+                } else if (i != 0 && i != (a.length - 1) && j == 0 && j != (a[i].length - 1)) {
+                    a[i][j] = a[i - 1][j] + a[i][j + 1] + a[i + 1][j];
+                } else if (i != 0 && i == (a.length - 1) && j != 0 && j != (a[i].length - 1)) {
+                    a[i][j] = a[i][j - 1] + a[i - 1][j] + a[i][j + 1];
+                } else if (i != 0 && i != (a.length - 1) && j != 0 && j == (a[i].length - 1)) {
+                    a[i][j] = a[i - 1][j] + a[i][j - 1] + a[i + 1][j];
+                }
+            }
         }
-
+        return a;//B
     }
+}
 
