@@ -16,6 +16,13 @@ public class ClassesDemo2 {
         double side23 = side((int) pointy.getX(),(int) pointy.getY(),(int) pointz.getX(),(int) pointz.getY());
         double side13 = side((int) pointx.getX(),(int) pointx.getY(),(int) pointz.getX(),(int) pointz.getY());
 
+
+        Triangle t1 = new Triangle(pointx, pointy, pointz);
+
+        Triangle t2 = new Triangle(3.0, 4.0, 5.0);
+
+        System.out.println("pointx.distanceTo(pointy) = " + pointx.distanceTo(pointy));
+
         System.out.println("side12 = " + side12);
         System.out.println("side23 = " + side23);
         System.out.println("side13 = " + side13);

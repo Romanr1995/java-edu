@@ -1,7 +1,4 @@
 package com.metanit.classes;
-import com.metanit.classes.Point;
-
-import static java.lang.Math.sqrt;
 
 public class Triangle {
     private double a;
@@ -14,17 +11,10 @@ public class Triangle {
         this.c = c;
     }
 
-    public double Triangle(Point x, Point y, Point z) {
-
-        double a = sqrt((x.getX() - y.getX()) * (x.getX() + y.getX()) +
-                (x.getY() - y.getY()) * (x.getY() - y.getY()));
-        double b = sqrt((y.getX() - z.getX()) * (y.getX() + z.getX()) +
-                (y.getY() - z.getY()) * (y.getY() - z.getY()));
-        double c = sqrt((x.getX() - z.getX()) * (x.getX() + z.getX()) +
-                (x.getY() - z.getY()) * (x.getY() - z.getY()));
-
-        return a;
-
+    public Triangle(Point x, Point y, Point z) {
+        a = x.distanceTo(y);
+        b = y.distanceTo(z);
+        c = z.distanceTo(x);
     }
 
 //    public double square() {
@@ -48,11 +38,10 @@ public class Triangle {
     }
 
     /**
-     *
      * является равносторонним
      */
     public boolean isEquilateral() {
-        return a == b && a == b && b ==c;
+        return a == b && b == c;
     }
 
 

@@ -106,32 +106,34 @@ public class Arrays2d {
     }
 
     public static int[][] generateAdjustmentSumArray(int[][] a) {
-        int i ;
-        int j ;
-        for (i = 0; i < a.length; ++i) {
-            for (j = 0; i < a[i].length; ++j) {
-                if (i != 0 && i != (a.length - 1) && j != 0 && j != (a[i].length - 1)) {
-                    a[i][j] = a[i - 1][j] + a[i + 1][j] + a[i][j - 1] + a[i][j + 1];
-                } else if (i == 0 && j == 0) {
-                    a[i][j] = a[i + 1][j] + a[i][j + 1];
-                } else if (i == 0 && j == (a[i].length - 1)) {
-                    a[i][j] = a[i][j - 1] + a[i + 1][j];
-                } else if (i == (a.length - 1) && j == 0) {
-                    a[i][j] = a[i - 1][j] + a[i][j + 1];
-                } else if (i == (a.length - 1) && j == (a[i].length - 1)) {
-                    a[i][j] = a[i][j - 1] + a[i - 1][j];
-                } else if (i == 0 && i != (a.length - 1) && j != 0 && j != (a[i].length - 1)) {
-                    a[i][j] = a[i][j - 1] + a[i][j + 1] + a[i + 1][j];
-                } else if (i != 0 && i != (a.length - 1) && j == 0 && j != (a[i].length - 1)) {
-                    a[i][j] = a[i - 1][j] + a[i][j + 1] + a[i + 1][j];
-                } else if (i != 0 && i == (a.length - 1) && j != 0 && j != (a[i].length - 1)) {
-                    a[i][j] = a[i][j - 1] + a[i - 1][j] + a[i][j + 1];
-                } else if (i != 0 && i != (a.length - 1) && j != 0 && j == (a[i].length - 1)) {
-                    a[i][j] = a[i - 1][j] + a[i][j - 1] + a[i + 1][j];
+        int[][] r = new int[a.length][];
+
+        for (int i = 0; i < a.length; ++i) {
+
+            r[i] = new int[a[i].length];
+            for (int j = 0; j < a[i].length; ++j) {
+                if (i != 0 && i != (a.length - 1) && j != 0 && j != (a[i].length - 1)) {//center
+                    r[i][j] = a[i - 1][j] + a[i + 1][j] + a[i][j - 1] + a[i][j + 1];
+                } else if (i == 0 && j == 0) {// top-left corner
+                    r[i][j] = a[i + 1][j] + a[i][j + 1];
+                } else if (i == 0 && j == (a[i].length - 1)) { //top-right corner
+                    r[i][j] = a[i][j - 1] + a[i + 1][j];
+                } else if (i == (a.length - 1) && j == 0) {// bottom-left corner
+                    r[i][j] = a[i - 1][j] + a[i][j + 1];
+                } else if (i == (a.length - 1) && j == (a[i].length - 1)) {// bottom-right corner
+                    r[i][j] = a[i][j - 1] + a[i - 1][j];
+                } else if (i == 0) { // top side
+                    r[i][j] = a[i][j - 1] + a[i][j + 1] + a[i + 1][j];
+                } else if (j == 0) { // left side
+                    r[i][j] = a[i - 1][j] + a[i][j + 1] + a[i + 1][j];
+                } else if (i == (a.length - 1)) { //bottom side
+                    r[i][j] = a[i][j - 1] + a[i - 1][j] + a[i][j + 1];
+                } else if (j == (a[i].length - 1)) { //right side
+                    r[i][j] = a[i - 1][j] + a[i][j - 1] + a[i + 1][j];
                 }
             }
         }
-        return a;//B
+        return r;//B
     }
 }
 
