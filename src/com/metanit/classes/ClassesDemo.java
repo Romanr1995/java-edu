@@ -1,5 +1,7 @@
 package com.metanit.classes;
 
+import com.metanit.classes.inheritance.WeightedBox;
+
 public class ClassesDemo {
     public static void main(String[] args) {
 //        printAdsAboutCar("BMW", 400.0, "RED", 10, 20_000, 1996);
