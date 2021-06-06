@@ -26,4 +26,29 @@ public class Arrays {
         }
         return ints;
     }
+
+    static class MinMax {
+        public final int min;
+        public final int max;
+
+        public MinMax(int min, int max) {
+            this.min = min;
+            this.max = max;
+        }
+    }
+
+    public static MinMax findMinMaxElement(int[] arr) {
+        int min = arr[0];
+        int max = arr[0];
+        for (int i = 0; i < arr.length; i++){
+            if (arr[i] < min){
+                min = arr[i];
+            }
+            if (arr[i] > max){
+                max = arr[i];
+            }
+        }
+        MinMax minMax = new MinMax(min,max);
+        return minMax;
+    }
 }
