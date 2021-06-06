@@ -2,12 +2,11 @@ package com.metanit.classes.inheritance;
 
 public class Rectangle  extends Quadrilateral {
 
-    public Rectangle (double a, double b, double c, double d) {
-        super(a, b, c, d);
+    public Rectangle (double a, double b) {
+        super(a, b, a, b);
     }
 
-    public void square() {
-        System.out.println("Площаль прямоугольника = " + getA() * getB());
+    public double square() {
+        return getA() * getB();
     }
-
 }
