@@ -51,4 +51,15 @@ public class Arrays {
         MinMax minMax = new MinMax(min,max);
         return minMax;
     }
+
+    public static int diagonalDiff(int[][] mat) {
+        int summ1 = 0;
+        int summ2 = 0;
+        int lengthArrMinusOne = mat.length-1;
+        for (int i = 0; i < mat.length; i++){
+            summ1+= mat[i][i];
+            summ2+= mat[i][lengthArrMinusOne--];
+        }
+        return summ1 - summ2;
+    }
 }
