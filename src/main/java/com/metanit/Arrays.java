@@ -40,6 +40,10 @@ public class Arrays {
     }
 
     public static MinMax findMinMaxElement(int[] arr) {
+        if (arr == null || arr.length == 0){
+            return null;
+        }
+
         int min = arr[0];
         int max = arr[0];
         for (int i = 0; i < arr.length; i++){
@@ -50,7 +54,7 @@ public class Arrays {
                 max = arr[i];
             }
         }
-        MinMax minMax = new MinMax(min,max);
+        MinMax minMax = new MinMax(min, max);
         return minMax;
     }
 
