@@ -16,6 +16,8 @@ public class Arrays {
             b[k] = -500 + k ;
             System.out.println(b[k]);
         }
+
+        
     }
 
     public static int[] generate(int size) {
@@ -61,5 +63,23 @@ public class Arrays {
             summ2+= mat[i][lengthArrMinusOne--];
         }
         return summ1 - summ2;
+    }
+
+    public static void rotate(int[] arr, int steps) {
+        int i;
+        for (i = 0; i < arr.length - steps; i++) {
+            i+= steps;
+        }
+        for (i = arr.length - steps - 1; i <= arr.length; i++) {
+            i= i - steps + 1 ;
+        }
+
+        for (i = arr.length -steps; i <=arr.length -steps; i++){
+            i = 0;
+        }
+    }
+
+    public static void rotate1step(int[] arr) {
+
     }
 }

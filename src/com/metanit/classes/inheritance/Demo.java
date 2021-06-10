@@ -21,6 +21,7 @@ public class Demo {
         makeSoundToAnimal(animal);
 
         makeSoundToAnimal(boris);
+
     }
 
     private static void makeSoundToAnimal(Animal animal) {
