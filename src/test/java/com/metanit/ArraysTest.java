@@ -30,4 +30,12 @@ public class ArraysTest {
 
         assert res == null;
     }
+
+    @Test
+    public void testRotate() {
+        int[] testArr = {2,4,7,8};
+        int steps = 1;
+        Arrays.rotate(testArr,steps);
+        assert testArr = {8,2,4,7};
+    }
 }

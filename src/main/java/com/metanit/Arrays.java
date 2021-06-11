@@ -70,20 +70,18 @@ public class Arrays {
     }
 
     public static void rotate(int[] arr, int steps) {
-        int i;
-        for (i = 0; i < arr.length - steps; i++) {
-            i+= steps;
-        }
-        for (i = arr.length - steps - 1; i <= arr.length; i++) {
-            i= i - steps + 1 ;
-        }
-
-        for (i = arr.length -steps; i <=arr.length -steps; i++){
-            i = 0;
-        }
+       for (int i = 0; i <= steps;i++){
+           rotate1step(arr);
+       }
     }
 
     public static void rotate1step(int[] arr) {
-
+        for(int i = 0; i < arr.length; i++) {
+            if(i !=0){
+                arr[i] = arr[i-1];
+            } else if(i ==0) {
+                arr[i] = arr[arr.length-1];
+            }
+        }
     }
 }
