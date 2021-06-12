@@ -2,6 +2,8 @@ package com.metanit;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 public class ArraysTest {
     @Test
     public void testFindMinMaxElement() {
@@ -9,8 +11,8 @@ public class ArraysTest {
 
         Arrays.MinMax res = Arrays.findMinMaxElement(testArr);
 
-        assert res.min == 0;
-        assert res.max == 8;
+        assertEquals(0, res.min);
+        assertEquals(8, res.max);
     }
 
     @Test
@@ -19,7 +21,7 @@ public class ArraysTest {
 
         Arrays.MinMax res = Arrays.findMinMaxElement(testArr);
 
-        assert res == null;
+        assertNull(res);
     }
 
     @Test
@@ -32,11 +34,10 @@ public class ArraysTest {
     }
 
     @Test
-    public void testRotateEmpyArray() {
+    public void testRotateEmptyArray() {
         int[] testArr = {};
         int steps = 1;
         Arrays.rotate(testArr,steps);
-        assert testArr == null;
     }
 
     @Test
@@ -44,7 +45,8 @@ public class ArraysTest {
         int[] testArr = {2,4,7,8};
         int steps = 1;
         Arrays.rotate(testArr,steps);
-        assert testArr[0] == 8 && testArr[1] == 2 && testArr[2] == 4 && testArr[3] == 7;
+
+        assertArrayEquals(new int[]{4,7,8,2}, testArr);
     }
 
     @Test
@@ -52,11 +54,10 @@ public class ArraysTest {
         int[] testArr = null;
         int steps = 1;
         Arrays.rotate(testArr,steps);
-        assert testArr == null;
     }
 
     @Test
-    public void testRotateNullSteps() {
+    public void testRotateZeroSteps() {
         int[] testArr = {2,4,7,8};
         int steps = 0;
         Arrays.rotate(testArr,steps);
@@ -77,13 +78,5 @@ public class ArraysTest {
         int steps = -1;
         Arrays.rotate(testArr,steps);
         assert testArr[0] == 4 && testArr[1] == 7 && testArr[2] == 8 && testArr[3] == 2;
-    }
-
-    @Test
-    public void testRotateTwoNegativeSteps() {
-        int[] testArr = {2,4,7,8};
-        int steps = -2;
-        Arrays.rotate(testArr,steps);
-        assert testArr[0] == 7 && testArr[1] == 8 && testArr[2] == 2 && testArr[3] == 4;
     }
 }
