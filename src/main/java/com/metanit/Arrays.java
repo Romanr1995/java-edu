@@ -4,20 +4,20 @@ import java.util.Random;
 
 public class Arrays {
     public static void main(String[] args) {
-        int [] a = {2,3,7,12,15};
-        int [] b = new int[1000];
+        int[] a = {2, 3, 7, 12, 15};
+        int[] b = new int[1000];
 
 
-        for (int i = 0; i < a.length ; i++ ){
-            System.out.println(a[i] );
+        for (int i = 0; i < a.length; i++) {
+            System.out.println(a[i]);
         }
 
-        for (int k = 0; k < b.length ; k++ ){
-            b[k] = -500 + k ;
+        for (int k = 0; k < b.length; k++) {
+            b[k] = -500 + k;
             System.out.println(b[k]);
         }
 
-        
+
     }
 
     public static int[] generate(int size) {
@@ -40,17 +40,17 @@ public class Arrays {
     }
 
     public static MinMax findMinMaxElement(int[] arr) {
-        if (arr == null || arr.length == 0){
+        if (arr == null || arr.length == 0) {
             return null;
         }
 
         int min = arr[0];
         int max = arr[0];
-        for (int i = 0; i < arr.length; i++){
-            if (arr[i] < min){
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] < min) {
                 min = arr[i];
             }
-            if (arr[i] > max){
+            if (arr[i] > max) {
                 max = arr[i];
             }
         }
@@ -61,27 +61,48 @@ public class Arrays {
     public static int diagonalDiff(int[][] mat) {
         int summ1 = 0;
         int summ2 = 0;
-        int lengthArrMinusOne = mat.length-1;
-        for (int i = 0; i < mat.length; i++){
-            summ1+= mat[i][i];
-            summ2+= mat[i][lengthArrMinusOne--];
+        int lengthArrMinusOne = mat.length - 1;
+        for (int i = 0; i < mat.length; i++) {
+            summ1 += mat[i][i];
+            summ2 += mat[i][lengthArrMinusOne--];
         }
         return summ1 - summ2;
     }
 
     public static void rotate(int[] arr, int steps) {
-       for (int i = 0; i <= steps;i++){
-           rotate1step(arr);
-       }
+        if (arr == null || arr.length == 0) {
+            return;
+        }
+
+        int actualSteps;
+        if (steps < 0) {
+            actualSteps = arr.length + steps;
+        } else {
+            actualSteps = steps;
+        }
+        actualSteps %= arr.length;
+
+        for (int i = 0; i < actualSteps; i++) {
+            rotate1step(arr);
+        }
     }
 
     public static void rotate1step(int[] arr) {
-        for(int i = 0; i < arr.length; i++) {
-            if(i !=0){
-                arr[i] = arr[i-1];
-            } else if(i ==0) {
-                arr[i] = arr[arr.length-1];
-            }
+        int temp1 = arr[arr.length - 1];
+        int temp2;
+        for (int i = 0; i < arr.length; i++) {
+            temp2 = arr[i];
+            arr[i] = temp1;
+            temp1 = temp2;
         }
+    }
+
+    //меняет первый и последний эл-т массива
+    public static void swapFirstAndLast(int[] arr) {
+        int temp = arr[0];
+
+        arr[0] = arr[arr.length - 1];
+
+        arr[arr.length - 1] = temp;
     }
 }
