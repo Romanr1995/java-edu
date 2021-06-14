@@ -18,6 +18,18 @@ class StateOfAccountTest {
     }
 
     @Test
+    public void testCompareTwoSameStatuses() {
+        StateOfAccount a1 = new StateOfAccount(1000, "OPENED");
+        StateOfAccount a2 = new StateOfAccount(10000, "OPENED");
+
+        //a2 < a1
+        assert a2.compareTo(a1) < 0;
+
+        //a1 > a2
+        assert a1.compareTo(a2) > 0;
+    }
+
+    @Test
     public void testSort() {
         StateOfAccount[] arr = {
                 new StateOfAccount(100, "OPENED"),
@@ -37,6 +49,16 @@ class StateOfAccountTest {
         for (StateOfAccount stateOfAccount : arr) {
             System.out.println(stateOfAccount);
         }
+    }
+
+    @Test
+    public void checkLogicalConsistency() {
+        StateOfAccount s1 = new StateOfAccount(10, "OPENED");
+        StateOfAccount s2 = new StateOfAccount(11, "OPENED");
+
+        assert s1.compareTo(s2) != 0 && s2.compareTo(s1) != 0;
+
+        assert s1.compareTo(s2) * s2.compareTo(s1) < 0;
     }
 
 }

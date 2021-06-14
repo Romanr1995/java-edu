@@ -20,7 +20,6 @@ public class StateOfAccount implements Printable, Comparable<StateOfAccount> {
     /**
      * First OPENED accounts
      * Then Closed accounts
-     * Then others accounts
      * If statuses are same then sort by balance descending
      */
     @Override
