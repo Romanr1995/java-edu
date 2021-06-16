@@ -21,21 +21,19 @@ public class Point implements Comparable<Point> {
      */
     @Override
     public int compareTo(Point o) {
-        if (this.distanceToTheCentr() == o.distanceToTheCentr() && this.y != o.y) {
+        if (this.distanceToTheCentr() == o.distanceToTheCentr()) {
             if (this.y > o.y) {
                 return -1;
             } else if (this.y < o.y) {
                 return 1;
-            } else {
-                return 0;
-            }
-        } else if (this.distanceToTheCentr() == o.distanceToTheCentr() && this.y == o.y) {
-            if (this.x > o.x) {
-                return -1;
-            } else if (this.x < o.x) {
-                return 1;
-            } else {
-                return 0;
+            } else {//this.y == o.y
+                if (this.x > o.x) {
+                    return -1;
+                } else if (this.x < o.x) {
+                    return 1;
+                } else {
+                    return 0;
+                }
             }
         } else {
             if (this.distanceToTheCentr() > o.distanceToTheCentr()) {
