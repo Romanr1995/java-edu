@@ -3,13 +3,22 @@ package com.metanit.collect;
 import java.util.Iterator;
 
 public class LList implements Iterable<String> {
+    private int size;
+    private Node head;
 
     private static class Node {
-        //добавь необходимые поля!
+        String data;
+        Node nodeNext;
+
+        Node(String  data_) {
+            this.data = data_;
+            this.nodeNext = null;
+        }
     }
 
 
     public void addToBegin(String elem) {
+       Node n1 = new Node(elem);
         //скорость выполнения не должна зависеть от размера связного списка
     }
 
@@ -18,8 +27,7 @@ public class LList implements Iterable<String> {
     }
 
     public int size() {
-        //скорость выполнения не должна зависеть от размера связного списка
-        return 0;
+        return size;
     }
 
     @Override

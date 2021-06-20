@@ -5,21 +5,32 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.util.Arrays;
+import java.util.Comparator;
 
 public class Imena {
-    public static void main(String[] args) throws IOException {
-        BufferedReader br1 = new BufferedReader(new FileReader("D:\\java-test\\name_rus.txt", Charset.forName("windows-1251")));
-        FileWriter writer1 = new FileWriter("D:\\java-test\\line.txt");
 
-        try {
-            String line;
-            while ((line = br1.readLine()) != null) {
-                writer1.append(line);
-                writer1.append('\n');
+    public static final int NAME_CNT = 1988;
+
+    public static void main(String[] args) throws IOException {
+
+        String[] list = new String[NAME_CNT];
+
+        try(BufferedReader br1
+                    = new BufferedReader(
+                            new FileReader("D:\\java-test\\name_rus.txt", Charset.forName("windows-1251")))
+        ) {
+            for (int i = 0; i < list.length; i++) {
+                list[i] = br1.readLine();
             }
-        } finally {
-            writer1.close();
-            br1.close();
+        }
+
+        Arrays.sort(list);
+
+        try(FileWriter writer1 = new FileWriter("D:\\java-test\\line.txt")) {
+            for (int i = list.length - 1; i >= 0; i--) {
+                writer1.append(list[i]).append('\n');
+            }
         }
     }
 }
