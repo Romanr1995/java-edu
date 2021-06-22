@@ -26,6 +26,22 @@ public class LList implements Iterable<String> {
     }
 
     public void addToEnd(String elem) {
+        Node cur = head;
+
+        size++;
+
+        if (head == null) {
+            head = new Node(elem);
+            return;
+        }
+
+        //O(n)
+        while(cur.next != null) {
+            cur = cur.next;
+        }
+        //после этого цикла cur указывает на последний узел связного списка
+
+        cur.next = new Node(elem);
 
     }
 
@@ -36,18 +52,22 @@ public class LList implements Iterable<String> {
     @Override
     public Iterator<String> iterator() {
         //факультативно
-        return null;
+        return new MyIterator();
     }
 
     private class MyIterator implements Iterator<String> {
+        private Node cur = head;
+
         @Override
         public boolean hasNext() {
-            return false;
+            return cur != null && cur.next != null;
         }
 
         @Override
         public String next() {
-            return null;
+            String data = cur.data;
+            cur = cur.next;
+            return data;
         }
     }
 }
