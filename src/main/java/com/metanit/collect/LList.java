@@ -8,18 +8,21 @@ public class LList implements Iterable<String> {
 
     private static class Node {
         String data;
-        Node nodeNext;
+        Node next;
 
-        Node(String  data_) {
-            this.data = data_;
-            this.nodeNext = null;
+        Node(String data) {
+            this.data = data;
+            this.next = null;
         }
     }
 
 
     public void addToBegin(String elem) {
-       Node n1 = new Node(elem);
         //скорость выполнения не должна зависеть от размера связного списка
+        Node n1 = new Node(elem);
+        n1.next = head;
+        head = n1;
+        size++;
     }
 
     public void addToEnd(String elem) {
