@@ -1,10 +1,11 @@
 package com.metanit.collect;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Random;
 
 public class DemoCode4 {
-    public static final int COUNT = 1_000_000;
+    public static final int COUNT = 10_000_000;
 
     public static void main(String[] args) {
         ArrayList<Double> doubles1 = generate();
@@ -16,6 +17,11 @@ public class DemoCode4 {
         addFromEnd(doubles2,count);
         
         System.out.println(minValue(doubles1));
+
+        double min1 = minValue(doubles1);
+        doubles1.sort(Comparator.naturalOrder());
+        System.out.println("(min1 == doubles1.get(0)) = " + (min1 == doubles1.get(0)));
+
         System.out.println(minValue(doubles2));
 
     }
@@ -45,16 +51,16 @@ public class DemoCode4 {
         Random r = new Random();
         long time = System.currentTimeMillis();
         for (int i = 0; i < count; i++) {
-            ar.add(0,r.nextDouble());
+            ar.add(0, r.nextDouble());
         }
         System.out.println("Время выполнения функции addFromStart = " + (System.currentTimeMillis() - time));
-}
+    }
 
     public static void addFromEnd(ArrayList<Double> ar, int count) {
         Random r = new Random();
         long time = System.currentTimeMillis();
         for (int i = 0; i < count; i++) {
-            ar.add(ar.size() - 1,r.nextDouble());
+            ar.add(r.nextDouble());
         }
         System.out.println("Время выполнения функции addFromEnd = " + (System.currentTimeMillis() - time));
     }
