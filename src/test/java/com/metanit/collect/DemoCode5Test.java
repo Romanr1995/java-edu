@@ -18,7 +18,7 @@ class DemoCode5Test {
 
     @Test
     public void shouldPlaceNullsForDuplicates() {
-        String[] strings = {"foo", "bar", "abc", "xyz", "foo", "abc"};
+        String[] strings = {"foo", "foo", "abc", "xyz", "abc", "bar"};
 
         DemoCode5.sortByTree(strings);
 
