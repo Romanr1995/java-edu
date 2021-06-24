@@ -17,6 +17,18 @@ class DemoCode5Test {
     }
 
     @Test
+    public void shouldPlaceNullsForDuplicates() {
+        String[] strings = {"foo", "bar", "abc", "xyz", "foo", "abc"};
+
+        DemoCode5.sortByTree(strings);
+
+        assertArrayEquals(
+                new String[]{"abc", "bar", "foo", "xyz", null, null},
+                strings
+        );
+    }
+
+    @Test
     public void comparisonOfFunctionExecutionTime() {
         String[] s = DemoCode5.generateArrString();
         long time = System.nanoTime();
