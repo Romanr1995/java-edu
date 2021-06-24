@@ -3,27 +3,34 @@ package com.metanit.collect;
 import java.util.*;
 
 public class DemoCode5 {
-    public static final int COUNT = 10_000_000;
+    public static final int COUNT = 1_000_000;
 
     public static void main(String[] args) {
         Random r = new Random();
 
         String[] s = generateArrString();
-        long time = System.nanoTime();
+        long time = System.currentTimeMillis();
         Arrays.sort(s);
 
-        System.out.println("Исполнение Arrys.sort заняло " + (System.nanoTime() - time) + " нс.");
+        System.out.println("Исполнение Arrys.sort заняло " + (System.currentTimeMillis() - time) + " мсек.");
 
-        long time1 = System.nanoTime();
-        sortByTree(s);
-        System.out.println("Исполнение sortByTree заняло " + (System.nanoTime() - time1) + " нс.");
+        String[] s2 = generateArrString();
+        long time1 = System.currentTimeMillis();
+        sortByTree(s2);
+        System.out.println("Исполнение sortByTree заняло " + (System.currentTimeMillis() - time1) + " мсек.");
 
     }
 
     public static void sortByTree(String[] strings) {
         TreeSet<String> set = new TreeSet<>();
-        for (int i = 0; i < COUNT; i++) {
+
+        for (int i = 0; i < strings.length; i++) {
             set.add(strings[i]);
+        }
+        int k = 0;
+        for (String s: set) {
+            strings[k] = s;
+            k++;
         }
         //нужно отсортировать заданный массив строк с помощьу класса TreeSet
         //замерить время выполнения и сравнить с временем выполнения Arrays.sort
@@ -48,8 +55,8 @@ public class DemoCode5 {
 //                result[i] = ("m".repeat(i));
 //            }
 //        }
-        for (int i = 0; i < 10_000_000; i++) {
-            result[r.nextInt(COUNT)] = (Integer.toString(r.nextInt()));
+        for (int i = 0; i < COUNT; i++) {
+            result[i] = (Integer.toString(r.nextInt()));
         }
         return result;
     }
