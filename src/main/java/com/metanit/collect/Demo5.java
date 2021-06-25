@@ -29,6 +29,7 @@ public class Demo5 {
 
         System.out.println("-".repeat(80));
 
+
         for (String s : strings) {
             System.out.println(s);
         }

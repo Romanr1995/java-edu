@@ -24,6 +24,7 @@ public class DemoCode5 {
     public static void sortByTree(String[] strings) {
         TreeSet<String> set = new TreeSet<>();
 
+
         for (int i = 0; i < strings.length; i++) {
             set.add(strings[i]);
         }
@@ -31,6 +32,9 @@ public class DemoCode5 {
         for (String s: set) {
             strings[k] = s;
             k++;
+        }  int sizeSet = set.size();
+        for(int j = strings.length - 1; j >= sizeSet; j-- ) {
+            strings[j] = null;
         }
         //нужно отсортировать заданный массив строк с помощьу класса TreeSet
         //замерить время выполнения и сравнить с временем выполнения Arrays.sort

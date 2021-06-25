@@ -28,18 +28,18 @@ class DemoCode5Test {
         );
     }
 
-    @Test
-    public void comparisonOfFunctionExecutionTime() {
-        String[] s = DemoCode5.generateArrString();
-        long time = System.nanoTime();
-        Arrays.sort(s);
-        long currentTime = System.nanoTime() - time;
-
-        long time1 = System.currentTimeMillis();
-        DemoCode5.sortByTree(s);
-        long currentTime1 = System.nanoTime() - time1;
-
-        assert currentTime > currentTime1;
-    }
+//    @Test
+//    public void comparisonOfFunctionExecutionTime() {
+//        String[] s = DemoCode5.generateArrString();
+//        long time = System.nanoTime();
+//        Arrays.sort(s);
+//        long currentTime = System.nanoTime() - time;
+//
+//        long time1 = System.currentTimeMillis();
+//        DemoCode5.sortByTree(s);
+//        long currentTime1 = System.nanoTime() - time1;
+//
+//        assert currentTime > currentTime1;
+//    }
 
 }
