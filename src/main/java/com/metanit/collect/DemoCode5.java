@@ -32,8 +32,8 @@ public class DemoCode5 {
         for (String s: set) {
             strings[k] = s;
             k++;
-        }  int sizeSet = set.size();
-        for(int j = strings.length - 1; j >= sizeSet; j-- ) {
+        }
+        for(int j = strings.length - 1; j >= set.size(); j-- ) {
             strings[j] = null;
         }
         //нужно отсортировать заданный массив строк с помощьу класса TreeSet

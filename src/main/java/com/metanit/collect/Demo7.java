@@ -16,8 +16,8 @@ public class Demo7 {
         TreeSet<Double> dTree = generateTree();
         HashSet<Double> dHash = generateHash();
 
-        timeToSearchRandomValuesTree(25,dTree);
-        timeToSearchRandomValuesHash(25,dHash);
+        timeToSearchRandomValuesTree(100,dTree);
+        timeToSearchRandomValuesHash(100,dHash);
 
     }
 
@@ -55,7 +55,7 @@ public class Demo7 {
             double valueToFind = d[rIdx];
             doubles.contains(valueToFind);
         }
-        System.out.println("Время поиска n случайных значений составило " + (System.nanoTime() - time) + " нс.");
+        System.out.println("Время поиска " + n +" случайных значений TreeSet составило " + (System.nanoTime() - time) + " нс.");
     }
 
     public static void timeToSearchRandomValuesHash(int n,HashSet<Double> hashSet) {
@@ -72,6 +72,6 @@ public class Demo7 {
             double valueToFind = d[rIdx];
             hashSet.contains(valueToFind);
         }
-        System.out.println("Время поиска n случайных значений составило " + (System.nanoTime() - time1) + " нс.");
+        System.out.println("Время поиска " + n +" случайных значений HashSet составило " + (System.nanoTime() - time1) + " нс.");
     }
 }
