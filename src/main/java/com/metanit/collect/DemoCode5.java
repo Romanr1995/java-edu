@@ -30,11 +30,11 @@ public class DemoCode5 {
         }
         int k = 0;
         for (String s: set) {
-            strings[k] = s;
-            k++;
+            strings[k++] = s;
         }
-        for(int j = strings.length - 1; j >= set.size(); j-- ) {
-            strings[j] = null;
+
+        for (; k < strings.length; ++k) {
+            strings[k] = null;
         }
         //нужно отсортировать заданный массив строк с помощьу класса TreeSet
         //замерить время выполнения и сравнить с временем выполнения Arrays.sort

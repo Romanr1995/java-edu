@@ -1,13 +1,12 @@
 package com.metanit.collect;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.TreeSet;
 
 public class Demo7 {
 
-    public static final int COUNT = 1_000_000;
+    public static final int COUNT = 10_000_000;
     public static final int SEED = 34;
 
     public static void main(String[] args) {
@@ -45,16 +44,19 @@ public class Demo7 {
         Random random = new Random(SEED);
         int c = 0;
         double[] d = new double[doubles.size()];
-            for (Double d1: doubles) {
-                d[c] = d1;
-                c++;
-            }
-            long time = System.nanoTime();
+        for (Double d1: doubles) {
+            d[c] = d1;
+            c++;
+        }
+
+        long time = System.nanoTime();
+
         for (int i = 0; i < n; i++) {
             int rIdx = random.nextInt(COUNT);
             double valueToFind = d[rIdx];
             doubles.contains(valueToFind);
         }
+
         System.out.println("Время поиска " + n +" случайных значений TreeSet составило " + (System.nanoTime() - time) + " нс.");
     }
 
@@ -66,12 +68,15 @@ public class Demo7 {
             d[c] = d1;
             c++;
         }
+
         long time1 = System.nanoTime();
+
         for (int i = 0; i < n; i++) {
             int rIdx = random.nextInt(COUNT);
             double valueToFind = d[rIdx];
             hashSet.contains(valueToFind);
         }
+
         System.out.println("Время поиска " + n +" случайных значений HashSet составило " + (System.nanoTime() - time1) + " нс.");
     }
 }
