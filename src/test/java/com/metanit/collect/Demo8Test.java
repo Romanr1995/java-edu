@@ -52,7 +52,16 @@ public class Demo8Test {
         strings2.add("foyto");
 
         HashSet<String> res = Demo8.intersection(strings1, strings2);
-        assert res.size() == 0;
+        String[] str = new String[res.size()];
+        int b = 0;
+        for (String s : res) {
+            str[b] = s;
+            b++;
+        }
+
+        String[] a = {};
+
+        assertArrayEquals(a, str);
     }
 
     @Test
@@ -64,9 +73,18 @@ public class Demo8Test {
         strings1.add("rty");
         strings1.add("bar");
         strings1.add("uyt");
-        
+
 
         HashSet<String> res = Demo8.intersection(strings1, strings2);
-        assert res.size() == 0;
+        String[] str = new String[res.size()];
+        int b = 0;
+        for (String s : res) {
+            str[b] = s;
+            b++;
+        }
+
+        String[] a = {};
+
+        assertArrayEquals(a, str);
     }
 }
