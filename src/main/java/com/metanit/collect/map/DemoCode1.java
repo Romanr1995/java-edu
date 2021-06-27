@@ -29,6 +29,15 @@ public class DemoCode1 {
      * y = 12.0
      * }
      * => 10.1 + 12.0
+     *
+     * expression = Мама купила $cakeCnt тортов за $money рублей.
+     * variableValues  = { cakeCnt = 10 }
+     * =>
+     * Мама купила 10 тортов.
+     *
+     * @see String#indexOf(String) -возвращает индекс указанной начала подстроки или -1 (если не нашлось)
+     * @see String#indexOf(String, int) - ищет подстроку не с начала с указаной позиции
+     * @see String#substring(int, int) возвращает подстроку (от начало включительно до конца не включетельно)
      */
     public static String replaceVariables(String expression, Map<String, Double> variableValues) {
         return null;
