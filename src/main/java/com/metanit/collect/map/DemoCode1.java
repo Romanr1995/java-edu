@@ -4,8 +4,19 @@ import java.util.*;
 
 public class DemoCode1 {
     public static void main(String[] args) {
-        printBirthdays(Arrays.asList(12, 14, 13, 10, 15, 10, 12, 13, 12, 11, 14, 32));
+//        printBirthdays(Arrays.asList(12, 14, 13, 10, 15, 10, 12, 13, 12, 11, 14, 32));
 
+        Set<String> str = new HashSet<>();
+
+        str.add("frgr");
+        str.add("w");
+        str.add("uy");
+        str.add("r");
+        str.add("hfd");
+        str.add("dkl");
+        str.add("");
+
+        printWordStatistics(str);
     }
 
     /**
@@ -18,7 +29,21 @@ public class DemoCode1 {
      * Группа 4 : test, aaaa
      */
     public static void printWordStatistics(Set<String> words) {
+        Map<Integer, String> groupsOfStrings = new HashMap<>();
 
+        for (String s : words) {
+            if (groupsOfStrings.get(s.length()) == null) {
+                groupsOfStrings.put(s.length(), "" + s);
+            } else {
+                groupsOfStrings.put(s.length(), groupsOfStrings.get(s.length()) + ", " + s);
+            }
+        }
+
+        for (Map.Entry<Integer, String> e : groupsOfStrings.entrySet()) {
+            int group = e.getKey();
+            String words1 = e.getValue();
+            System.out.println("Группа: " + group + " : " + words1);
+        }
     }
 
     /**
@@ -29,7 +54,7 @@ public class DemoCode1 {
      * y = 12.0
      * }
      * => 10.1 + 12.0
-     *
+     * <p>
      * expression = Мама купила $cakeCnt тортов за $money рублей.
      * variableValues  = { cakeCnt = 10 }
      * =>
