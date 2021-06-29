@@ -6,17 +6,24 @@ public class DemoCode1 {
     public static void main(String[] args) {
 //        printBirthdays(Arrays.asList(12, 14, 13, 10, 15, 10, 12, 13, 12, 11, 14, 32));
 
-        Set<String> str = new HashSet<>();
+//        Set<String> str = new HashSet<>();
+//
+//        str.add("frgr");
+//        str.add("w");
+//        str.add("uy");
+//        str.add("r");
+//        str.add("hfd");
+//        str.add("dkl");
+//        str.add("");
+//
+//        printWordStatistics(str);
 
-        str.add("frgr");
-        str.add("w");
-        str.add("uy");
-        str.add("r");
-        str.add("hfd");
-        str.add("dkl");
-        str.add("");
+        String expression1 = "Мама купила $cakeCnt тортов за $money рублей.";
+        Map<String, Double> numbers1 = new TreeMap<>();
 
-        printWordStatistics(str);
+        numbers1.put("$cakeCnt",4.5);
+
+        System.out.println(replaceVariables(expression1,numbers1));
     }
 
     /**
@@ -28,23 +35,25 @@ public class DemoCode1 {
      * Группа 3 : abc, foo, bar
      * Группа 4 : test, aaaa
      */
-    public static void printWordStatistics(Set<String> words) {
-        Map<Integer, String> groupsOfStrings = new HashMap<>();
-
-        for (String s : words) {
-            if (groupsOfStrings.get(s.length()) == null) {
-                groupsOfStrings.put(s.length(), "" + s);
-            } else {
-                groupsOfStrings.put(s.length(), groupsOfStrings.get(s.length()) + ", " + s);
-            }
-        }
-
-        for (Map.Entry<Integer, String> e : groupsOfStrings.entrySet()) {
-            int group = e.getKey();
-            String words1 = e.getValue();
-            System.out.println("Группа: " + group + " : " + words1);
-        }
-    }
+//    public static void printWordStatistics(Set<String> words) {
+//        Map<Integer, List<String> > groupsOfStrings = new HashMap<>();
+//        List<String> l1 = new ArrayList<>();
+//
+//        for (String s : words) {
+//            l1.add(s);
+//            if (groupsOfStrings.get(s.length()) == null) {
+//                groupsOfStrings.put(s.length(), "" + s);
+//            } else {
+//                groupsOfStrings.put(s.length(), groupsOfStrings.get(s.length()) + ", " + s);
+//            }
+//        }
+//
+//        for (Map.Entry<Integer, List<String>> e : groupsOfStrings.entrySet()) {
+//            int group = e.getKey();
+//            l1 = e.getValue();
+//            System.out.println("Группа: " + group + " : " + l1);
+//        }
+//    }
 
     /**
      * HW1
@@ -65,7 +74,18 @@ public class DemoCode1 {
      * @see String#substring(int, int) возвращает подстроку (от начало включительно до конца не включетельно)
      */
     public static String replaceVariables(String expression, Map<String, Double> variableValues) {
-        return null;
+        String key = "";
+        Double value = 0.0;
+
+        for (Map.Entry<String, Double> e: variableValues.entrySet()) {
+             key = e.getKey();
+             value = e.getValue();
+        }
+        String ert = key;
+        Double d = value;
+        String str1 = Double.toString(d);
+        String out = expression.replaceAll(ert,str1);
+        return out;
     }
 
     /**
