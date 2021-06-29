@@ -18,6 +18,8 @@ public class DemoCode1 {
 //
 //        printWordStatistics(str);
 
+        printWordStatistics(Set.of("foo", "bar", "atct", "test", "mercy", "eatehuteaohutea0"));
+
         String expression1 = "Мама купила $cakeCnt тортов за $money рублей.";
         Map<String, Double> numbers1 = new TreeMap<>();
 
@@ -35,25 +37,31 @@ public class DemoCode1 {
      * Группа 3 : abc, foo, bar
      * Группа 4 : test, aaaa
      */
-//    public static void printWordStatistics(Set<String> words) {
-//        Map<Integer, List<String> > groupsOfStrings = new HashMap<>();
-//        List<String> l1 = new ArrayList<>();
-//
-//        for (String s : words) {
-//            l1.add(s);
-//            if (groupsOfStrings.get(s.length()) == null) {
-//                groupsOfStrings.put(s.length(), "" + s);
-//            } else {
-//                groupsOfStrings.put(s.length(), groupsOfStrings.get(s.length()) + ", " + s);
-//            }
-//        }
-//
-//        for (Map.Entry<Integer, List<String>> e : groupsOfStrings.entrySet()) {
-//            int group = e.getKey();
-//            l1 = e.getValue();
-//            System.out.println("Группа: " + group + " : " + l1);
-//        }
-//    }
+    public static void printWordStatistics(Set<String> words) {
+        Map<Integer, List<String>> groupsOfStrings = new TreeMap<>();
+
+        for (String s : words) {
+            if (groupsOfStrings.get(s.length()) == null) {
+                groupsOfStrings.put(s.length(), new ArrayList<>());
+            }
+            groupsOfStrings.get(s.length()).add(s);
+        }
+
+        for (Map.Entry<Integer, List<String>> e : groupsOfStrings.entrySet()) {
+            int group = e.getKey();
+            System.out.print("Группа: " + group + " : ");
+            List<String> l = e.getValue();
+            boolean f = false;
+            for (String s : l) {
+                if (f) {
+                    System.out.print(", ");
+                }
+                f = true;
+                System.out.print(s);
+            }
+            System.out.println();
+        }
+    }
 
     /**
      * HW1

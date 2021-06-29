@@ -1,15 +1,19 @@
 package com.metanit.threads;
 
-import java.math.BigInteger;
+import java.util.Arrays;
 import java.util.Random;
 
 public class DemoCode1 {
     static final int SIZE = 10_000_000;
-    static long l = 0;
+
 
     public static void main(String[] args) throws InterruptedException {
-        Thread tr1 = new Thread(new MyRunnable());
-        Thread tr2 = new Thread(new MyRunnable());
+        int[] arr = randomArray();
+        long[] sum0 = new long[1];
+        long[] sum1 = new long[1];
+
+        Thread tr1 = new Thread(new MyRunnable(arr, 0, arr.length/2, sum0));
+        Thread tr2 = new Thread(new MyRunnable(arr, arr.length/2, arr.length, sum1));
 
         tr1.start();
         tr2.start();
@@ -17,8 +21,9 @@ public class DemoCode1 {
         tr1.join();
         tr2.join();
 
-        System.out.println("Summa = " + l);
+        System.out.println("Summa = " + (sum0[0] + sum1[0]));
 
+        System.out.println("sum 1 thread " + Arrays.stream(arr).asLongStream().sum());
 
         //нужно посчитать сумму этого массива в 2 потоках!
     }
@@ -33,19 +38,26 @@ public class DemoCode1 {
         return result;
     }
 
-    public static long summ() {
-        int[] arr = randomArray();
-        long summa = 0;
-        for(int i = 0; i < SIZE; i++) {
-            summa+=arr[i];
-        }
-        return summa;
-    }
-
     static class MyRunnable implements Runnable  {
+        int[] arr;
+        int start;
+        int end;
+        long[] sumOut;
+
+        public MyRunnable(int[] arr, int start, int end, long[] sumOut) {
+            this.arr = arr;
+            this.start = start;
+            this.end = end;
+            this.sumOut = sumOut;
+        }
+
         @Override
         public void run() {
-            l = summ();
+            long sum = 0;
+            for (int i = start; i < end; ++i) {
+                sum += arr[i];
+            }
+            sumOut[0] = sum;
         }
     }
 }

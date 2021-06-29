@@ -9,13 +9,24 @@ public class DemoCode2 {
         Thread tr2 = new Thread(new MyRunnable());
         Thread tr3 = new Thread(new MyRunnable());
 
+        tr1.start();
+
+
+        tr1.join();
+
 
     }
 
     static class MyRunnable implements Runnable {
         @Override
         public void run() {
-            System.out.println(System.currentTimeMillis());
+            long begin = System.currentTimeMillis();
+
+            System.out.println("begin = " + begin);
+
+            long end = begin + 10000;
+
+            System.out.println("end   = " + end);
         }
     }
 }
