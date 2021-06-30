@@ -73,9 +73,9 @@ public class DemoCode1 {
      * => 10.1 + 12.0
      * <p>
      * expression = Мама купила $cakeCnt тортов за $money рублей.
-     * variableValues  = { cakeCnt = 10 }
+     * variableValues  = { cakeCnt = 10, money = 12 }
      * =>
-     * Мама купила 10 тортов.
+     * Мама купила 10 тортов за 12 рублей.
      *
      * @see String#indexOf(String) -возвращает индекс указанной начала подстроки или -1 (если не нашлось)
      * @see String#indexOf(String, int) - ищет подстроку не с начала с указаной позиции
@@ -92,7 +92,7 @@ public class DemoCode1 {
         String ert = key;
         Double d = value;
         String str1 = Double.toString(d);
-        String out = expression.replaceAll(ert,str1);
+        String out = expression.replace(ert,str1);
         return out;
     }
 
