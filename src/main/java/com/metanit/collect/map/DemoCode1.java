@@ -29,6 +29,7 @@ public class DemoCode1 {
 
 
         runns1("ortyTkkggbDhj");
+        runns1("OrtyTkkbDhj");
     }
 
     /**
@@ -136,8 +137,8 @@ public class DemoCode1 {
         for (int i = 0; i < str.length(); i++) {
             if (str.charAt(i) >= 'A' && str.charAt(i) <= 'Z') {
 
-                for (int j = i + 1; j < str.length(); j++) {
-                    if (str.charAt(j) >= 'A' && str.charAt(j) <= 'Z') {
+                for (int j = i + 1; j <= str.length(); j++) {
+                    if (j == str.length() || (str.charAt(j) >= 'A' && str.charAt(j) <= 'Z')) {
                         s = str.substring(i,j);
                         if (runns(s)) {
                             e+=s.length();
