@@ -30,9 +30,14 @@ public class DemoCode2 {
 
         @Override
         public void run() {
+            long begin = System.currentTimeMillis();
+            long prev = begin - 200;
+            while (begin + 10000 > System.currentTimeMillis()) {
 
-            for (long begin = System.currentTimeMillis(); (begin <= begin+10000); begin += 200) {
-                System.out.println("T" + number + " "+ System.currentTimeMillis());
+                if (prev + 200 <= System.currentTimeMillis()) {
+                    prev = System.currentTimeMillis();
+                    System.out.println("T" + number + ": " + prev);
+                }
             }
         }
     }
