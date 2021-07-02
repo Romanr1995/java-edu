@@ -4,31 +4,31 @@ import java.util.*;
 
 public class DemoCode1 {
     public static void main(String[] args) {
-        printBirthdays(Arrays.asList(12, 14, 13, 10, 15, 10, 12, 13, 12, 11, 14, 32));
+//        printBirthdays(Arrays.asList(12, 14, 13, 10, 15, 10, 12, 13, 12, 11, 14, 32));
+//
+//        Set<String> str = new HashSet<>();
+//
+//        str.add("frgr");
+//        str.add("w");
+//        str.add("uy");
+//        str.add("r");
+//        str.add("hfd");
+//        str.add("dkl");
+//        str.add("");
+//
+//        printWordStatistics(str);
+//
+//        printWordStatistics(Set.of("foo", "bar", "atct", "test", "mercy", "eatehuteaohutea0"));
+//
+//        String expression1 = "Мама купила $cakeCnt тортов за $money рублей.";
+//        Map<String, Double> numbers1 = new TreeMap<>();
+//
+//        numbers1.put("$cakeCnt", 4.5);
+//
+//        System.out.println(replaceVariables(expression1, numbers1));
 
-        Set<String> str = new HashSet<>();
 
-        str.add("frgr");
-        str.add("w");
-        str.add("uy");
-        str.add("r");
-        str.add("hfd");
-        str.add("dkl");
-        str.add("");
-
-        printWordStatistics(str);
-
-        printWordStatistics(Set.of("foo", "bar", "atct", "test", "mercy", "eatehuteaohutea0"));
-
-        String expression1 = "Мама купила $cakeCnt тортов за $money рублей.";
-        Map<String, Double> numbers1 = new TreeMap<>();
-
-        numbers1.put("$cakeCnt", 4.5);
-
-        System.out.println(replaceVariables(expression1, numbers1));
-
-
-        runns("orty");
+        runns1("ortyTkkggbDhj");
     }
 
     /**
@@ -130,7 +130,30 @@ public class DemoCode1 {
 
     }
 
-    public static void runns(String words) {
+    public static void runns1(String str) {
+        String s = "";
+        int e = 0;
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) >= 'A' && str.charAt(i) <= 'Z') {
+
+                for (int j = i + 1; j < str.length(); j++) {
+                    if (str.charAt(j) >= 'A' && str.charAt(j) <= 'Z') {
+                        s = str.substring(i,j);
+                        if (runns(s)) {
+                            e+=s.length();
+                        }
+                    }
+                }
+            }
+        }
+        if (e == str.length()) {
+            System.out.println("Yes");
+        } else {
+            System.out.println("No");
+        }
+    }
+
+    public static boolean runns(String words) {
         String words1 = "";
         int c = 0;
 
@@ -145,9 +168,9 @@ public class DemoCode1 {
             }
         }
         if (c == words.length() - 1) {
-            System.out.println("Yes");
+            return true;
         } else {
-            System.out.println("No");
+            return false;
         }
     }
 }
