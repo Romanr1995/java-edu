@@ -4,28 +4,31 @@ import java.util.*;
 
 public class DemoCode1 {
     public static void main(String[] args) {
-//        printBirthdays(Arrays.asList(12, 14, 13, 10, 15, 10, 12, 13, 12, 11, 14, 32));
+        printBirthdays(Arrays.asList(12, 14, 13, 10, 15, 10, 12, 13, 12, 11, 14, 32));
 
-//        Set<String> str = new HashSet<>();
-//
-//        str.add("frgr");
-//        str.add("w");
-//        str.add("uy");
-//        str.add("r");
-//        str.add("hfd");
-//        str.add("dkl");
-//        str.add("");
-//
-//        printWordStatistics(str);
+        Set<String> str = new HashSet<>();
+
+        str.add("frgr");
+        str.add("w");
+        str.add("uy");
+        str.add("r");
+        str.add("hfd");
+        str.add("dkl");
+        str.add("");
+
+        printWordStatistics(str);
 
         printWordStatistics(Set.of("foo", "bar", "atct", "test", "mercy", "eatehuteaohutea0"));
 
         String expression1 = "Мама купила $cakeCnt тортов за $money рублей.";
         Map<String, Double> numbers1 = new TreeMap<>();
 
-        numbers1.put("$cakeCnt",4.5);
+        numbers1.put("$cakeCnt", 4.5);
 
-        System.out.println(replaceVariables(expression1,numbers1));
+        System.out.println(replaceVariables(expression1, numbers1));
+
+
+        runns("orty");
     }
 
     /**
@@ -85,14 +88,16 @@ public class DemoCode1 {
         String key = "";
         Double value = 0.0;
 
-        for (Map.Entry<String, Double> e: variableValues.entrySet()) {
-             key = e.getKey();
-             value = e.getValue();
+        for (Map.Entry<String, Double> e : variableValues.entrySet()) {
+            key = e.getKey();
+            value = e.getValue();
+
+            expression.indexOf(key);
         }
         String ert = key;
         Double d = value;
         String str1 = Double.toString(d);
-        String out = expression.replace(ert,str1);
+        String out = expression.replace(ert, str1);
         return out;
     }
 
@@ -123,5 +128,26 @@ public class DemoCode1 {
             System.out.println("age: " + age + " cnt = " + cnt);
         }
 
+    }
+
+    public static void runns(String words) {
+        String words1 = "";
+        int c = 0;
+
+        if (words.length() >= 2 && words.length() <= 4) {
+            words1 = words.toLowerCase(Locale.ROOT);
+        }
+        if (words.charAt(0) != words1.charAt(0)) {
+            for (int i = 1; i < words.length(); i++) {
+                if (words.charAt(i) == words1.charAt(i)) {
+                    c++;
+                }
+            }
+        }
+        if (c == words.length() - 1) {
+            System.out.println("Yes");
+        } else {
+            System.out.println("No");
+        }
     }
 }
