@@ -11,6 +11,10 @@ public class DemoCode5 {
         String[] s = generateArrString();
         long time = System.currentTimeMillis();
         Arrays.sort(s);
+        for (int i = 0; i < s.length; i++) {
+            System.out.println(s[i]);
+        }
+
 
         System.out.println("Исполнение Arrys.sort заняло " + (System.currentTimeMillis() - time) + " мсек.");
 

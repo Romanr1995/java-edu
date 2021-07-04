@@ -2,7 +2,7 @@ package com.metanit.classes.zadaniya;
 
 public class Brace {
     public static void main(String[] args) {
-        System.out.println(isCorrectBraceSequene("([{[]}])"));
+        System.out.println(isCorrectBraceSequene("()()"));
     }
 
     public static boolean isCorrectBraceSequene(String brace) {
