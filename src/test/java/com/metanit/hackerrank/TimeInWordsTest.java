@@ -9,7 +9,7 @@ class TimeInWordsTest {
 
     @Test
     public void test500() {
-        assertEquals("five o'clock", timeInWords(5,0));
+        assertEquals("five o' clock", timeInWords(5,0));
     }
 
     @Test

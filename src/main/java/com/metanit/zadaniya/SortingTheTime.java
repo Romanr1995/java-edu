@@ -9,23 +9,32 @@ public class SortingTheTime {
     }
 
     public static void sortingTheTime(int N, String... time) {
-        StringBuffer[] time1 = new StringBuffer[N];
 
-        for (int i = 0; i < N; i++) {
 
-            if (time1[i].length() == 7) {
-                time1[i].append(time[i]);
-                time1[i].insert(0,'0');
-            } else {
-                time1[i].append(time[i]);
-            }
-        }
-        time1.toString();
-        Arrays.sort(time1);
-        for (int k = 0; k < time.length; k++) {
-            System.out.println(time1[k]);
-        }
+//        for (int i = 0; i < N; i++) {
+//            StringBuilder time1 = new StringBuilder();
+//            if (time1.length() == 7) {
+//                time1.append(time[i]);
+//                time1.insert(0,'0');
+//            } else {
+//                time1.append(time[i]);
+//            }
+//        }
+//        for (int k = 0; k < time.length; k++) {
+//            System.out.println(time1[k]);
+//        }
     }
 
+    public static int parseHour(String s) {
+        return 0;
+    }
+
+    public static int parseMinute(String s) {
+        return 0;
+    }
+
+    public static int parseSeconds(String s) {
+        return 0;
+    }
 }
 

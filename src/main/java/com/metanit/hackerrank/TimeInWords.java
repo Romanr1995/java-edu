@@ -45,7 +45,7 @@ class Result {
      */
     public static String timeInWords(int h, int m) {
         if (m == 0) {
-            return digitToWords.get(h) + " o'clock";
+            return digitToWords.get(h) + " o' clock";
         } else if (m <= 30) {
             return minutesToWords(m) + " past " + digitToWords.get(h);
         } else {
