@@ -1,4 +1,4 @@
-package com.metanit.classes.zadaniya;
+package com.metanit.zadaniya;
 
 public class Substring {
     public static void main(String[] args) {

@@ -1,12 +1,6 @@
-package com.metanit.classes.zadaniya;
+package com.metanit.zadaniya;
 
-import com.sun.source.doctree.SeeTree;
-
-import java.lang.reflect.Array;
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.TreeSet;
 
 public class SortingTheTime {
     public static void main(String[] args) {

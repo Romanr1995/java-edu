@@ -1,6 +1,4 @@
-package com.metanit.classes.zadaniya;
-
-import java.util.*;
+package com.metanit.zadaniya;
 
 public class ConverterInRoman {
 

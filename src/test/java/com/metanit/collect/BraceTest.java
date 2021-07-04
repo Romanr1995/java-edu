@@ -1,6 +1,6 @@
 package com.metanit.collect;
 
-import com.metanit.classes.zadaniya.Brace;
+import com.metanit.zadaniya.Brace;
 import org.junit.jupiter.api.Test;
 
 public class BraceTest {
