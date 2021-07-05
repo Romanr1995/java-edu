@@ -46,4 +46,24 @@ public class MergeArrays {
         }
         return result;
     }
+
+    public static int[] mergeArrays23(int[] a,int[] b) {
+        int[] result = new int[a.length + b.length];
+        int c = 0;
+        int d = 0;
+        for (int i = 0; i < result.length; i++) {
+            int val;
+            if (c >= a.length) {
+                val = b[d++];
+            } else if (d >= b.length) {
+                val = a[c++];
+            } else if (a[c] < b[d]) {
+                val = a[c++];
+            } else {
+                val = b[d++];
+            }
+            result[i] = val;
+        }
+        return result;
+    }
 }
