@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  * https://www.hackerrank.com/challenges/the-time-in-words/problem
  */
-class Result {
+class Result_ {
 
     private static final Map<Integer, String> digitToWords;
 
@@ -85,7 +85,7 @@ class Result {
 
 public class TimeInWords {
     public static void main_(String[] args) {
-        System.out.println(Result.timeInWords(12, 31));
+        System.out.println(Result_.timeInWords(12, 31));
     }
 
     public static void main(String[] args) throws IOException {
@@ -96,7 +96,7 @@ public class TimeInWords {
 
         int m = Integer.parseInt(bufferedReader.readLine().trim());
 
-        String result = Result.timeInWords(h, m);
+        String result = Result_.timeInWords(h, m);
 
         bufferedWriter.write(result);
         bufferedWriter.newLine();

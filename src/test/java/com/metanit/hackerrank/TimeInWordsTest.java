@@ -2,7 +2,7 @@ package com.metanit.hackerrank;
 
 import org.junit.jupiter.api.Test;
 
-import static com.metanit.hackerrank.Result.timeInWords;
+import static com.metanit.hackerrank.Result_.timeInWords;
 import static org.junit.jupiter.api.Assertions.*;
 
 class TimeInWordsTest {
