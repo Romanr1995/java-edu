@@ -1,11 +1,14 @@
 package com.metanit.zadaniya;
 
-import java.util.Arrays;
+import java.util.*;
+
 
 public class SortingTheTime {
     public static void main(String[] args) {
 
-        sortingTheTime(5, "10 20 30","7 30 00", "23 59 59","8 20 40","13 30 30");
+//        sortingTheTime(5, "10 20 30","7 30 00", "23 59 59","8 20 40","13 30 30");
+
+        sortingTheTimeMap(5, "10 20 30","7 30 00", "23 59 59","8 20 40","13 30 30");
 
     }
 
@@ -17,10 +20,28 @@ public class SortingTheTime {
         }
         Arrays.sort(sekonds);
         for (int k = 0; k < sekonds.length; k++) {
-            System.out.println(convertsSecondsToHours(sekonds[k]) + convertsSecondsToMinute(sekonds[k])
-                    + convertsSecondsToSecondsString(sekonds[k]));
+            String res = convertsSecondsToHours(sekonds[k]) + convertsSecondsToMinute(sekonds[k])
+                    + convertsSecondsToSecondsString(sekonds[k]);
+            System.out.println(res);
         }
 
+    }
+
+    public static void sortingTheTimeMap(int N, String... time) {
+        Map<Integer,String> m1 = new TreeMap<>();
+//            for (int k = 0; k < time.length; k++) {
+//                m1.put((parseHour(time[k]) * 3600 + parseMinute(time[k]) * 60 + parseSeconds(time[k])),time[k]);
+//            }
+        for(String s: time) {
+            m1.put((parseHour(s) * 3600 + parseMinute(s) * 60 + parseSeconds(s)),s);
+        }
+
+        for (Map.Entry<Integer, String> e : m1.entrySet()) {
+
+            String time1 = e.getValue();
+
+            System.out.println(time1 + " ");
+        }
     }
 
     public static int parseHour(String s) {

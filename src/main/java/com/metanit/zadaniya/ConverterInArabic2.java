@@ -12,7 +12,7 @@ public class ConverterInArabic2 {
         String[] numbersToC = {"X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"};
         String[] numbersToM = {"C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"};
         String res = "";
-        
+
         if (numbers < 10) {
             res += numbersToX[numbers - 1];
         } else if (numbers >= 10 && numbers < 100) {
