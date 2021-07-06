@@ -16,7 +16,11 @@ public class ConverterInRoman {
         Map<String, Integer> m = new TreeMap<>();
 
         for (int i = 1; i <= 1000; i++) {
-            m.put(ConverterInArabic2.converterToArabicNumbersTo1000(i), i);
+            try {
+                m.put(ConverterInArabic2.converterToArabicNumbersTo1000(i), i);
+            }catch (RuntimeException e) {
+                throw new RuntimeException("number = " + i, e);
+            }
         }
         for (Map.Entry<String, Integer> e : m.entrySet()) {
 
