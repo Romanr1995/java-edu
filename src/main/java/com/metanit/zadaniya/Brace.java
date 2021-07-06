@@ -1,6 +1,8 @@
 package com.metanit.zadaniya;
 
+import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.Stack;
 
 public class Brace {
     public static void main(String[] args) {
@@ -32,5 +34,35 @@ public class Brace {
             return false;
         }
         return braceHalf1.equals(braceHalf2);
+    }
+
+    public static boolean isBraceSequenceCorrect(String braces) {
+        Deque<Character> stack = new ArrayDeque<>();
+
+        for (int i = 0; i < braces.length(); i++) {
+            char c = braces.charAt(i);
+
+            if (c == '(' || c == '[' || c == '{') {
+                stack.push(c);
+            } else if (c == ')' || c == ']' || c == '}') {
+                if (stack.isEmpty() || !isComplementTo(stack.pop(), c)) {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        }
+
+        return stack.isEmpty();
+    }
+
+    private static boolean isComplementTo(char openingBrace, char closingBrace) {
+        if (openingBrace == '(' && closingBrace != ')') return false;
+
+        if (openingBrace == '[' && closingBrace != ']') return false;
+
+        if (openingBrace == '{' && closingBrace != '}') return false;
+
+        return true;
     }
 }
