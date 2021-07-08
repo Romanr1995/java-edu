@@ -27,21 +27,21 @@ public class SortingTheTime {
 
     }
 
-    public static String sortingTheTimeMap(String... time) {
-        Map<Integer,String> m1 = new TreeMap<>();
+    public static List<String> sortingTheTimeMap(String... time) {
+        Map<Integer,String> m = new TreeMap<>();
 //            for (int k = 0; k < time.length; k++) {
-//                m1.put((parseHour(time[k]) * 3600 + parseMinute(time[k]) * 60 + parseSeconds(time[k])),time[k]);
+//                m.put((parseHour(time[k]) * 3600 + parseMinute(time[k]) * 60 + parseSeconds(time[k])),time[k]);
 //            }
         for(String s: time) {
-            m1.put((parseHour(s) * 3600 + parseMinute(s) * 60 + parseSeconds(s)),s);
+            m.put((parseHour(s) * 3600 + parseMinute(s) * 60 + parseSeconds(s)),s);
         }
-        String value = "";
-        for (Map.Entry<Integer, String> e : m1.entrySet()) {
 
-            value = e.getValue();
+        List<String> result = new ArrayList<>(m.size());
 
+        for (Map.Entry<Integer, String> e : m.entrySet()) {
+            result.add(e.getValue());
         }
-        return value;
+        return result;
     }
 
     public static int parseHour(String s) {

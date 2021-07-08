@@ -19,13 +19,6 @@ public class ConverterInRoman {
                 throw new RuntimeException("number = " + i, e);
             }
         }
-        int value = m.get(number);
-        for (Map.Entry<String, Integer> e : m.entrySet()) {
-
-            String key = e.getKey();
-            value = e.getValue();
-//            System.out.println("key = " + key + "value = " + value);
-        }
-        return value;
+        return m.get(number);
     }
 }
