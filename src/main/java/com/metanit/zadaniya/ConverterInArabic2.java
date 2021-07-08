@@ -9,26 +9,26 @@ public class ConverterInArabic2 {
 
     public static void main(String[] args) {
 
-        System.out.println(converterToArabicNumbersTo1000(475));
+        System.out.println(convertFromArabicToRoman(475));
     }
 
-    public static String converterToArabicNumbersTo1000(int num) {
-        String res = "";
-
-        if (num < 10) {
-            res += numbersToX[num - 1];
-        } else if (num < 100) {
-            res += numbersToC[num / 10 - 1] + numbersToX[num % 10 - 1];
-        } else if (num < 1000) {
-            res += numbersToM[num / 100 - 1] + numbersToC[(num % 100) / 10 - 1]
-                    + numbersToX[(num % 100) % 10 - 1];
-        } else if (num == 1000) {
-            res += "M";
-        } else {
-            res += "Число должно быть от 1 до 1000";
-        }
-        return res;
-    }
+//    public static String converterToArabicNumbersTo1000(int num) {
+//        String res = "";
+//
+//        if (num < 10) {
+//            res += numbersToX[num - 1];
+//        } else if (num < 100) {
+//            res += numbersToC[num / 10 - 1] + numbersToX[num % 10 - 1];
+//        } else if (num < 1000) {
+//            res += numbersToM[num / 100 - 1] + numbersToC[(num % 100) / 10 - 1]
+//                    + numbersToX[(num % 100) % 10 - 1];
+//        } else if (num == 1000) {
+//            res += "M";
+//        } else {
+//            res += "Число должно быть от 1 до 1000";
+//        }
+//        return res;
+//    }
 
     public static String convertFromArabicToRoman(int num) {
         if (num > 3999) {

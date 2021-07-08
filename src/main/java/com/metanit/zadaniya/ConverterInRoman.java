@@ -1,33 +1,31 @@
 package com.metanit.zadaniya;
 
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 public class ConverterInRoman {
 
     public static void main(String[] args) {
-      converterToRomanNumbersTo1000("X");
+        System.out.println(converterToRomanNumbersTo1000("X"));
     }
 
-    public static void converterToRomanNumbersTo1000(String number) {
+    public static int converterToRomanNumbersTo1000(String number) {
         Map<String, Integer> m = new TreeMap<>();
 
         for (int i = 1; i <= 1000; i++) {
             try {
-                m.put(ConverterInArabic2.converterToArabicNumbersTo1000(i), i);
+                m.put(ConverterInArabic2.convertFromArabicToRoman(i), i);
             }catch (RuntimeException e) {
                 throw new RuntimeException("number = " + i, e);
             }
         }
+        int value = m.get(number);
         for (Map.Entry<String, Integer> e : m.entrySet()) {
 
             String key = e.getKey();
-            int value = e.getValue();
-
-            System.out.println("key = " + key + "value = " + value);
+            value = e.getValue();
+//            System.out.println("key = " + key + "value = " + value);
         }
+        return value;
     }
 }

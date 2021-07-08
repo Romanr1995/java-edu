@@ -6,10 +6,10 @@ public class Decomposition {
         int res = 1;
 
         Outer:for (int i = 1; i <= number/2; i++) {
-            int summ = i;
-            Inner:for(int k = i+1; k <= number/2 + 1;k++) {
-                summ +=k;
-                if (summ == number) {
+            int sum = i;
+            for(int k = i+1; k <= number/2 + 1;k++) {
+                sum +=k;
+                if (sum == number) {
                     res += k - i;
                     break Outer;
                 }

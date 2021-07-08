@@ -12,7 +12,7 @@ public class ElectronicsShopTest {
         int[] n = {3,1};
         int[] m = {5,2,8};
 
-        assertEquals(9, ElectronicsShop.shoosingElectronics(b,n,m));
+        assertEquals(9, ElectronicsShop.choosingElectronics(b,n,m));
     }
 
     @Test
@@ -21,7 +21,7 @@ public class ElectronicsShopTest {
         int[] n = {40,50,60};
         int[] m = {5,8,12};
 
-        assertEquals(58, ElectronicsShop.shoosingElectronics(b,n,m));
+        assertEquals(58, ElectronicsShop.choosingElectronics(b,n,m));
     }
 
     @Test
@@ -30,7 +30,7 @@ public class ElectronicsShopTest {
         int[] n = {4};
         int[] m = {5};
 
-        assertEquals(-1, ElectronicsShop.shoosingElectronics(b,n,m));
+        assertEquals(-1, ElectronicsShop.choosingElectronics(b,n,m));
     }
 
     @Test
@@ -39,6 +39,6 @@ public class ElectronicsShopTest {
         int[] n = {23,15,6};
         int[] m = {5,2,10};
 
-        assertEquals(20, ElectronicsShop.shoosingElectronics(b,n,m));
+        assertEquals(20, ElectronicsShop.choosingElectronics(b,n,m));
     }
 }

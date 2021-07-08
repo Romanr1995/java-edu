@@ -11,16 +11,16 @@ public class ElectronicsShop {
         int[] n = {40,50,60};
         int[] m = {5,8,12};
 
-        System.out.println(shoosingElectronics(b,n,m));
+        System.out.println(choosingElectronics(b,n,m));
     }
 
-    public static int shoosingElectronics(int b,int[] n,int[] m) {
+    public static int choosingElectronics(int b,int[] keyboards,int[] drives) {
         List<Integer> summa = new ArrayList<>();
 
-        for (int i = 0; i < n.length; i++) {
-            for (int k = 0; k < m.length; k++) {
-                if (n[i] + m[k] <= b) {
-                    summa.add(n[i] + m[k]);
+        for (int i = 0; i < keyboards.length; i++) {
+            for (int k = 0; k < drives.length; k++) {
+                if (keyboards[i] + drives[k] <= b) {
+                    summa.add(keyboards[i] + drives[k]);
                 } else {
                     summa.add(-1);
                 }
