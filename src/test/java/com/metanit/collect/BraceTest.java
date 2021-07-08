@@ -13,20 +13,20 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class BraceTest {
-
-    @Test
-    public void общийСлучайРасположенияСкобок() {
-        boolean res = Brace.isCorrectBraceSequene("([{}])");
-
-        assertTrue(res);
-    }
-
-    @Test
-    public void другойСлучайРасположенияСкобок() {
-        boolean res = Brace.isCorrectBraceSequene("()()");
-
-        assertTrue(res);
-    }
+//
+//    @Test
+//    public void общийСлучайРасположенияСкобок() {
+//        boolean res = Brace.isCorrectBraceSequene("([{}])");
+//
+//        assertTrue(res);
+//    }
+//
+//    @Test
+//    public void другойСлучайРасположенияСкобок() {
+//        boolean res = Brace.isCorrectBraceSequene("()()");
+//
+//        assertTrue(res);
+//    }
 
     public static Stream<Arguments> braces() {
         return Stream.of(

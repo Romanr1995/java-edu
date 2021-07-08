@@ -13,9 +13,9 @@ public class DifferentWords {
         TreeSet<String> substrings = new TreeSet<>();
 
         for (int i = 0; i < word.length(); i++) {
-            String word1 = word.substring(i);
-            for (int k = 1; k <= word1.length(); k++) {
-                substrings.add(word1.substring(0,k));
+            String wordToIndex = word.substring(i);
+            for (int k = 1; k <= wordToIndex.length(); k++) {
+                substrings.add(wordToIndex.substring(0,k));
             }
            }
         return substrings.size();

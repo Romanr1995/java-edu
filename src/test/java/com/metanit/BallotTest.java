@@ -9,24 +9,24 @@ public class BallotTest {
     @Test
     public void случай557() {
 
-        assertEquals(6, Ballot.ballot(3,5,5,7));
+        assertEquals(6, Ballot.ballot(5,5,7));
     }
 
     @Test
     public void случай42137() {
 
-        assertEquals(5,Ballot.ballot(5,4,2,1,3,7));
+        assertEquals(5,Ballot.ballot(4,2,1,3,7));
     }
 
     @Test
     public void одноЗначение() {
 
-        assertEquals(1,Ballot.ballot(1,1));
+        assertEquals(1,Ballot.ballot(1));
     }
 
     @Test
     public void четыреОдинаковыхЗначения() {
 
-        assertEquals(9,Ballot.ballot(4,4,4,4,4));
+        assertEquals(9,Ballot.ballot(4,4,4,4));
     }
 }
