@@ -17,7 +17,7 @@ public class CustomSorting {
 
     }
 
-    public Comparator<Money> createMoneyComparator() {
+    public static Comparator<Money> createMoneyComparator_() {
         Comparator<Money>  comp = (Money m1,Money m2) -> {
             if (m1.dollar != m2.dollar) {
                 if (m1.dollar > m2.dollar) {
@@ -41,6 +41,25 @@ public class CustomSorting {
         return comp;
     }
 
+    public static Comparator<Money> createMoneyComparator() {
+        return (lhs, rhs) -> {
+            if (lhs.dollar == rhs.dollar) {
+                return Integer.compare(lhs.cents, rhs.cents);
+            }
+            return Integer.compare(lhs.dollar, rhs.dollar);
+        };
+    }
+
+    public static Comparator<Money> createMoneyComparatorV2() {
+        return Comparator.comparing((Money m) -> m.dollar)
+                .thenComparing((Money m) -> m.cents);
+    }
+
+    public static Comparator<Money> createMoneyComparatorV3() {
+        return Comparator.comparing(Money::getDollar)
+                .thenComparing(Money::getCents);
+    }
+
     static class Money {
         int dollar;
         int cents;
@@ -52,6 +71,14 @@ public class CustomSorting {
             if (this.cents > 99) {
                 throw new RuntimeException("cents amount must be below 99");
             }
+        }
+
+        public int getDollar() {
+            return dollar;
+        }
+
+        public int getCents() {
+            return cents;
         }
 
         @Override
