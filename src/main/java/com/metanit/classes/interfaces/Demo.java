@@ -9,6 +9,11 @@ public class Demo {
         StateOfAccount closed = new StateOfAccount(0, "CLOSED");
 
         printAll(fedor, spot, open, closed);
+
+        Rectangle rectangle1 = new Rectangle(4,5);
+        Rectangle rectangle2 = new Rectangle(3,4);
+
+        System.out.println(rectangle2.compareTo(rectangle1));
     }
 
     public static void printAll(Printable ... printables) {
