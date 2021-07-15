@@ -32,21 +32,13 @@ public class DemoCode1 {
         }
 
         public static Comparator<Cars> sortCars() {
-            Comparator<Cars> comp =  (lhs, rhs) -> {
-                if (lhs.year != rhs.year) {
-
-                } else if (lhs.year == rhs.year) {
-                    if (lhs.price > rhs.price) {
-                        return -1;
-                    } else if (lhs.price < rhs.price) {
-                        return 1;
-                    } else {
-                        return 0;
-                    }
+            return (lhs, rhs) -> {
+                if (!lhs.year.equals(rhs.year)) {
+                  return rhs.year.compareTo(lhs.year);
+                } else {
+                  return Integer.compare(rhs.price, lhs.price);
                 }
-               return 0;
             };
-            return comp;
         }
     }
 

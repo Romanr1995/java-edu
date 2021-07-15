@@ -99,6 +99,8 @@ public class CustomSorting {
     /**
      * Данный компоратор должен сортировать все слова начинающиеся на руские буквы раньше чем остальные символы,
      * остальные строки идут в естественном порядке
+     * Пример:[Яблоко,Апельсин,Apple,Orange]->[Апельсин,Яблоко,Apple,Orange]
+     * [Яd,Яблоко,Яroslavl,Ясли,Apple]->[Яd,Яroslavl,Яблоко,Ясли,Apple]
      */
     public Comparator<String> customStringCmp() {
         Comparator<String> comp = (String s1, String s2) -> {
