@@ -21,7 +21,7 @@ class CustomSortingTest {
                 new Money(11, 0)
         );
 
-        Comparator<Money> moneyComparator = CustomSorting.createMoneyComparator();
+        Comparator<Money> moneyComparator = CustomSorting.createMoneyComparator_();
 
         moneyList.sort(moneyComparator);
 

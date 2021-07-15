@@ -3,6 +3,7 @@ package com.metanit.zadaniya;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
+
 import static java.util.Comparator.comparing;
 import static java.util.Comparator.naturalOrder;
 
@@ -18,7 +19,7 @@ public class CustomSorting {
     }
 
     public static Comparator<Money> createMoneyComparator_() {
-        Comparator<Money>  comp = (Money m1,Money m2) -> {
+        Comparator<Money> comp = (Money m1, Money m2) -> {
             if (m1.dollar != m2.dollar) {
                 if (m1.dollar > m2.dollar) {
                     return 1;
@@ -98,14 +99,29 @@ public class CustomSorting {
     /**
      * Данный компоратор должен сортировать все слова начинающиеся на руские буквы раньше чем остальные символы,
      * остальные строки идут в естественном порядке
-     *
      */
-//    public Comparator<String> customStringCmp() {
-//        Comparator<String> comparator = (String s1,String s2) -> {
-//            if (!((s1.charAt(0) >= 'A' && s1.charAt(0) <= 'Z') || (s1.charAt(0) >= 'a' && s1.charAt(0) <= 'z'))) {
-//               return s1.compareTo(s2);
-//            }
-//        };
-//        return null;
-//    }
+    public Comparator<String> customStringCmp() {
+        Comparator<String> comp = (String s1, String s2) -> {
+            if (s1.charAt(0) >= 'А' && s1.charAt(0) <= 'Я' && s2.charAt(0) >= 'А' && s2.charAt(0) <= 'Я') {
+                if (s1.charAt(0) > s2.charAt(0)) {
+                    return 1;
+                } else if (s1.charAt(0) < s1.charAt(0)) {
+                    return -1;
+                } else {
+                    return 0;
+                }
+            } if (!(s1.charAt(0) >= 'А' && s1.charAt(0) <= 'Я' && s2.charAt(0) >= 'А' && s2.charAt(0) <= 'Я')) {
+                if (s1.charAt(0) > s2.charAt(0)) {
+                    return 1;
+                } else if (s1.charAt(0) < s1.charAt(0)) {
+                    return -1;
+                } else {
+                    return 0;
+                }
+            }
+            return 0;
+        };
+        return comp;
+    }
 }
+
