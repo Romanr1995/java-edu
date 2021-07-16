@@ -102,7 +102,7 @@ public class CustomSorting {
      * Пример:[Яблоко,Апельсин,Apple,Orange]->[Апельсин,Яблоко,Apple,Orange]
      * [Яd,Яблоко,Яroslavl,Ясли,Apple]->[Яd,Яroslavl,Яблоко,Ясли,Apple]
      */
-    public Comparator<String> customStringCmp() {
+    public static Comparator<String> customStringCmp() {
         Comparator<String> comp = (String s1, String s2) -> {
             if (s1.charAt(0) >= 'А' && s1.charAt(0) <= 'Я' && s2.charAt(0) >= 'А' && s2.charAt(0) <= 'Я') {
                 if (s1.charAt(0) > s2.charAt(0)) {
