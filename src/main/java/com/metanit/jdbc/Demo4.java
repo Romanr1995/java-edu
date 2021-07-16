@@ -63,6 +63,6 @@ public class Demo4 {
     private static Connection getMySql() throws Exception {
         Class.forName("com.mysql.cj.jdbc.Driver");
 
-        return DriverManager.getConnection("jdbc:mysql:/localhost:3306/test");
+        return DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "roman", "12345");
     }
 }
