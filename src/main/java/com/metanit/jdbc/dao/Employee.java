@@ -3,10 +3,11 @@ package com.metanit.jdbc.dao;
 import java.sql.Date;
 
 public class Employee {
-    private  long id;
+    private long id;
     private String login;
     private String password;
     private Date registrationDate;
+    private Department department;
 
     public Employee(long id, String login, String password, Date registrationDate) {
         this.id = id;
