@@ -7,17 +7,11 @@ import java.util.List;
 import com.metanit.jdbc.dao.JournalRecord;
 import com.metanit.jdbc.dao.JournalRecordDao;
 
-import static com.metanit.jdbc.ConnectionManager.getH2;
-import static com.metanit.jdbc.ConnectionManager.getMySql;
-
 public class Demo4 {
     public static void main(String[] args) throws Exception {
-        Connection conn;
-        if (args.length > 1 && "use_h2".equals(args[0])) {
-            conn = getH2();
-        } else {
-            conn = getMySql();
-        }
+        Connection conn = ConnectionManager.getConnection();
+
+        conn.setAutoCommit(false);
 
         try {
             conn.createStatement();
@@ -51,7 +45,14 @@ public class Demo4 {
 
             System.out.println("dao.findById(4) = " + dao.findById(4));
 
-        } finally {
+            conn.commit();
+        }
+        catch (Exception e){
+            conn.rollback();
+
+            throw e;
+        }
+        finally {
             conn.close();
         }
     }
