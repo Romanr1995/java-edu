@@ -2,11 +2,13 @@ package com.metanit.jdbc;
 
 import java.sql.Connection;
 import java.sql.Date;
-import java.sql.DriverManager;
 import java.util.Arrays;
 import java.util.List;
 import com.metanit.jdbc.dao.JournalRecord;
 import com.metanit.jdbc.dao.JournalRecordDao;
+
+import static com.metanit.jdbc.ConnectionManager.getH2;
+import static com.metanit.jdbc.ConnectionManager.getMySql;
 
 public class Demo4 {
     public static void main(String[] args) throws Exception {
@@ -52,17 +54,5 @@ public class Demo4 {
         } finally {
             conn.close();
         }
-    }
-
-    private static Connection getH2() throws Exception {
-        Class.forName("org.h2.Driver");
-
-        return DriverManager.getConnection("jdbc:h2:mem:default");
-    }
-
-    private static Connection getMySql() throws Exception {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-
-        return DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "roman", "12345");
     }
 }

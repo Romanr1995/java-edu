@@ -73,8 +73,8 @@ public class EmployeeDao {
         String sql = "update employee set" +
                 " login = ?," +
                 " password = ?," +
-                " registration_date = ?," +
-                "where id = ?";
+                " registration_date = ?" +
+                " where id = ?";
 
         try {
             try (PreparedStatement stmt = conn.prepareStatement(sql)) {

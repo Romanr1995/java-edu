@@ -11,9 +11,7 @@ import java.sql.Date;
 
 public class DemoCode2 {
     public static void main(String[] args) throws Exception{
-        Class.forName("com.mysql.cj.jdbc.Driver");
-
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "roman", "12345");
+        Connection conn = ConnectionManager.getConnection();
 
         try {
             conn.createStatement();
