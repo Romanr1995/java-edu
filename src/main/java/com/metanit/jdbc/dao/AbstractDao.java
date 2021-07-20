@@ -139,6 +139,19 @@ public abstract class AbstractDao<T extends AbstractEntity<P>, P> {
         }
     }
 
+    //todo дз
+    public long tableSize() {
+        //метод возвращает размер таблицы
+        //select count(*) from <table_name>
+        return 0;
+    }
+
+    //todo дз
+    public boolean containsId(P id) {
+        //метод возвращает существует ли в таблице заданый ключ
+        return false;
+    }
+
     String generateInsertSql() {
         StringBuilder sb = new StringBuilder();
 
