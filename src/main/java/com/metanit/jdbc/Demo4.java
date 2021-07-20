@@ -21,10 +21,10 @@ public class Demo4 {
             long now = System.currentTimeMillis();
 
             List<JournalRecord> records = Arrays.asList(
-                    new JournalRecord(1, "First Message", "hello, world", "erixon", new Date(now - 1_000_000)),
-                    new JournalRecord(2, "Second message", "Hi", "Roman", new Date(now - 800_000)),
-                    new JournalRecord(3, "Alert", "Fire!", "erixon", new Date(now - 10000)),
-                    new JournalRecord(4, "Farewell", "Good bye, my friend", "erixon", new Date(now))
+                    new JournalRecord( "First Message", "hello, world", "erixon", new Date(now - 1_000_000)),
+                    new JournalRecord( "Second message", "Hi", "Roman", new Date(now - 800_000)),
+                    new JournalRecord( "Alert", "Fire!", "erixon", new Date(now - 10000)),
+                    new JournalRecord( "Farewell", "Good bye, my friend", "erixon", new Date(now))
             );
 
             records.forEach(dao::create);//rec -> dao.create(rec)

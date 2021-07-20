@@ -2,24 +2,27 @@ package com.metanit.jdbc.dao;
 
 import java.sql.Date;
 
-public class JournalRecord {
-    private long id;
+public class JournalRecord extends AbstractEntity<Long> {
     private String title;
     private String body;
     private String author;
     private Date fromDate;
 
 
-    public JournalRecord(long id, String title, String body, String author, Date when) {
-        this.id = id;
+    JournalRecord(Long id, String title, String body, String author, Date when) {
+        super(id);
         this.title = title;
         this.body = body;
         this.author = author;
         this.fromDate = when;
     }
 
-    public long getId() {
-        return id;
+    public JournalRecord(String title, String body, String author, Date fromDate) {
+        super(null);
+        this.title = title;
+        this.body = body;
+        this.author = author;
+        this.fromDate = fromDate;
     }
 
     public String getTitle() {
@@ -57,7 +60,7 @@ public class JournalRecord {
     @Override
     public String toString() {
         return "JournalRecord{" +
-                "id=" + id +
+                "id=" + getId() +
                 ", title='" + title + '\'' +
                 ", body='" + body + '\'' +
                 ", author='" + author + '\'' +
