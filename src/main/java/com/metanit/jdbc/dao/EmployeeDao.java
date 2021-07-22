@@ -56,7 +56,8 @@ public class EmployeeDao {
                                 rs.getLong("id"),
                                 rs.getString("login"),
                                 rs.getString("password"),
-                                rs.getDate("registration_date")
+                                rs.getDate("registration_date"),
+                                null//not working
                         );
                     }
                     throw new RuntimeException("Record by id = " + id + " not found!");

@@ -19,11 +19,11 @@ public class DemoCode2 {
             EmployeeDao dao = new EmployeeDao(conn);
 
             List<Employee> employees = Arrays.asList(
-                    new Employee(1,"LoginEmp","122ghhr",new Date(2015-11-12)),
-                    new Employee(2,"Login@mail","1234567890",new Date(2016-07-04)),
-                    new Employee(3,"MoyLogin","111Ivan!",new Date(2020-10-07)),
-                    new Employee(4,"PetrovGena1973","19732002",new Date(2010-10-12)),
-                    new Employee(5,"ElenaIvanovna77","Elena1977",new Date(2009-01-12))
+                    new Employee("LoginEmp","122ghhr",new Date(2015-11-12), null),
+                    new Employee("Login@mail","1234567890",new Date(2016-07-04), null),
+                    new Employee("MoyLogin","111Ivan!",new Date(2020-10-07), null),
+                    new Employee("PetrovGena1973","19732002",new Date(2010-10-12), null),
+                    new Employee("ElenaIvanovna77","Elena1977",new Date(2009-01-12), null)
             );
 
             employees.forEach(dao::create);

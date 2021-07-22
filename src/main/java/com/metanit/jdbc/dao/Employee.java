@@ -2,22 +2,27 @@ package com.metanit.jdbc.dao;
 
 import java.sql.Date;
 
-public class Employee {
-    private long id;
+public class Employee extends AbstractEntity<Long> {
     private String login;
     private String password;
     private Date registrationDate;
     private Department department;
 
-    public Employee(long id, String login, String password, Date registrationDate) {
-        this.id = id;
+
+    public Employee(String login, String password, Date registrationDate, Department department) {
+        super(null);
         this.login = login;
         this.password = password;
         this.registrationDate = registrationDate;
+        this.department = department;
     }
 
-    public long getId() {
-        return id;
+    Employee(Long id, String login, String password, Date registrationDate, Department department) {
+        super(id);
+        this.login = login;
+        this.password = password;
+        this.registrationDate = registrationDate;
+        this.department = department;
     }
 
     public String getLogin() {
@@ -44,10 +49,18 @@ public class Employee {
         this.registrationDate = registrationDate;
     }
 
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
-                "id=" + id +
+                "id=" + getId() +
                 ", login='" + login + '\'' +
                 ", password='" + password + '\'' +
                 ", registrationDate=" + registrationDate +
