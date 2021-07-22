@@ -152,7 +152,7 @@ public abstract class AbstractDao<T extends AbstractEntity<P>, P> {
 
     //todo дз
     public boolean containsId(P id) {
-        String sql = generateSelectSql();
+        String sql = "select count(*) from " + getTableName() + " where id = ?";//возможно 2 исхода: 0 или 1
         Connection conn = getConnection();
 
         try {
