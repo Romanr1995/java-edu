@@ -1,24 +1,26 @@
 package com.metanit.jdbc.dao;
 
-public class Department extends AbstractEntity<Long>{
+public class Department extends AbstractEntity<Long> {
 
     private String name;
-    private Employee manager;
+    //private Employee manager;
     private Category category;
 
-    public Department(Long id, String name, Employee manager, Category category) {
+
+    public Department(String name, Category category) {
+        super(null);
+        this.name = name;
+        this.category = category;
+    }
+
+    Department(Long id, String name, Category category) {
         super(id);
         this.name = name;
-        this.manager = manager;
         this.category = category;
     }
 
     public String getName() {
         return name;
-    }
-
-    public Employee getManager() {
-        return manager;
     }
 
     public Category getCategory() {
@@ -29,10 +31,6 @@ public class Department extends AbstractEntity<Long>{
         this.name = name;
     }
 
-    public void setManager(Employee manager) {
-        this.manager = manager;
-    }
-
     public void setCategory(Category category) {
         this.category = category;
     }
@@ -40,10 +38,10 @@ public class Department extends AbstractEntity<Long>{
     @Override
     public String toString() {
         return "Department{" +
-                "id=" + getId() +
-                ", name='" + name + '\'' +
-                ", manager=" + manager +
-                ", category=" + category +
-                '}';
+               "id=" + getId() +
+               ", name='" + name + '\'' +
+               //", manager=" + manager +
+               ", category=" + category +
+               '}';
     }
 }
