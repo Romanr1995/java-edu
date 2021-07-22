@@ -143,13 +143,29 @@ public abstract class AbstractDao<T extends AbstractEntity<P>, P> {
     public long tableSize() {
         //метод возвращает размер таблицы
         //select count(*) from <table_name>
+        Connection conn = getConnection();
+        String sql = "select count(*) from " + getTableName();
+
+
         return 0;
     }
 
     //todo дз
     public boolean containsId(P id) {
-        //метод возвращает существует ли в таблице заданый ключ
-        return false;
+        String sql = generateSelectSql();
+        Connection conn = getConnection();
+
+        try {
+            try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+                stmt.setObject(1, id);
+
+                ResultSet rs = stmt.executeQuery();
+
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return Optional.empty().isEmpty();
     }
 
     String generateInsertSql() {
