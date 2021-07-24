@@ -1,9 +1,6 @@
 package com.metanit.jdbc.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.List;
 import java.util.Optional;
 
@@ -127,7 +124,7 @@ public abstract class AbstractDao<T extends AbstractEntity<P>, P> {
         Connection conn = getConnection();
 
         try {
-            try (PreparedStatement stmt = conn.prepareStatement(sql)){
+            try (PreparedStatement stmt = conn.prepareStatement(sql)) {
                 stmt.setObject(1, id);
                 int rows = stmt.executeUpdate();
 
@@ -146,36 +143,52 @@ public abstract class AbstractDao<T extends AbstractEntity<P>, P> {
         Connection conn = getConnection();
         String sql = "select count(*) from " + getTableName();
 
+        long size = 0;
+        try {
+            try (PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-        return 0;
+                ResultSet rs = stmt.executeQuery();
+
+                while (rs.next()) {
+                    size = rs.getLong("count(*)");
+                }
+
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return size;
     }
 
     //todo дз
     public boolean containsId(P id) {
         String sql = "select count(*) from " + getTableName() + " where id = ?";//возможно 2 исхода: 0 или 1
         Connection conn = getConnection();
-
+        boolean isID = true;
         try {
             try (PreparedStatement stmt = conn.prepareStatement(sql)) {
                 stmt.setObject(1, id);
 
                 ResultSet rs = stmt.executeQuery();
 
+                while (rs.next()) {
+                    isID = rs.getLong("count(*)") != 0;
+                }
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return Optional.empty().isEmpty();
+        return isID;
     }
 
     String generateInsertSql() {
         StringBuilder sb = new StringBuilder();
 
         sb.append("insert into ")
-          .append(getTableName())
-          .append(" (")
-          .append(String.join(",", getColumnList()))
-          .append(") values (");
+                .append(getTableName())
+                .append(" (")
+                .append(String.join(",", getColumnList()))
+                .append(") values (");
 
         boolean first = true;
         for (int i = 0; i < getColumnList().size(); ++i) {
@@ -196,11 +209,11 @@ public abstract class AbstractDao<T extends AbstractEntity<P>, P> {
         StringBuilder sb = new StringBuilder();
 
         sb.append("select ")
-          .append(getPrimaryKeyColumn()).append(",")
-          .append(String.join(",", getColumnList()))
-          .append(" from ").append(getTableName())
-          .append(" where ")
-          .append(getPrimaryKeyColumn()).append(" = ?");
+                .append(getPrimaryKeyColumn()).append(",")
+                .append(String.join(",", getColumnList()))
+                .append(" from ").append(getTableName())
+                .append(" where ")
+                .append(getPrimaryKeyColumn()).append(" = ?");
 
         return sb.toString();
     }
@@ -211,11 +224,11 @@ public abstract class AbstractDao<T extends AbstractEntity<P>, P> {
         StringBuilder sb = new StringBuilder();
 
         sb.append("update ")
-          .append(getTableName())
-          .append(" set ")
-          .append(String.join("=?,", getColumnList()))
-          .append("=?")
-          .append(" where ").append(getPrimaryKeyColumn()).append("=?");
+                .append(getTableName())
+                .append(" set ")
+                .append(String.join("=?,", getColumnList()))
+                .append("=?")
+                .append(" where ").append(getPrimaryKeyColumn()).append("=?");
 
         return sb.toString();
     }
@@ -224,8 +237,8 @@ public abstract class AbstractDao<T extends AbstractEntity<P>, P> {
         //delete from table_name where col_pk = ?
         StringBuilder sb = new StringBuilder();
         sb.append("delete from ").append(getTableName())
-          .append(" where ")
-          .append(getPrimaryKeyColumn()).append("=?");
+                .append(" where ")
+                .append(getPrimaryKeyColumn()).append("=?");
 
 
         return sb.toString();

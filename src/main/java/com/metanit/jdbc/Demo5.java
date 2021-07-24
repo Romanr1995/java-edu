@@ -17,7 +17,8 @@ public class Demo5 {
 
         dao.create(r);
         dao.create(r2);
-
+        System.out.println(dao.tableSize());
+        System.out.println(dao.containsId(4L));
         final JournalRecord rec = dao.findById(1L).orElseThrow(() -> new RuntimeException("Объект не найден"));
 
         rec.setAuthor("Roman");
