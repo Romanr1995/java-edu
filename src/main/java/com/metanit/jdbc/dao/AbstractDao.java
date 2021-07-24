@@ -100,7 +100,7 @@ public abstract class AbstractDao<T extends AbstractEntity<P>, P> {
         String sql = generateInsertSql();
 
         try {
-            try (PreparedStatement stmt = conn.prepareStatement(sql, new String[]{getPrimaryKeyColumn()})) {
+            try (PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
                 prepareForInsertOrUpdate(t, stmt);
 
                 int rows = stmt.executeUpdate();
@@ -111,7 +111,7 @@ public abstract class AbstractDao<T extends AbstractEntity<P>, P> {
                 ResultSet generatedKeys = stmt.getGeneratedKeys();
 
                 while (generatedKeys.next()) {
-                    t.setId((P) generatedKeys.getObject("id"));
+                    t.setId((P) generatedKeys.getObject(1));
                 }
             }
         } catch (SQLException e) {
